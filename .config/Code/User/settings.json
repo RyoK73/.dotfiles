@@ -1,0 +1,55 @@
+{
+    // 基本設定
+    // フォント・色
+    "workbench.colorTheme": "Dark+",
+    "editor.fontFamily": "PlemolJP Console NF Text",
+    "editor.fontSize": 16,
+    "editor.lineHeight": 1.5, // 行間
+    // エディタ体験
+    "editor.smoothScrolling": true, // スクロールをスムーズに
+    "editor.renderWhitespace": "boundary",
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": "active", // {}や[]を線でつなぐ
+    "workbench.startupEditor": "none", // 起動時のウェルカム画面
+    "window.zoomLevel": 1.2, // UIスケール
+    "editor.mouseWheelZoom": true, // マウスホイールでズーム
+    "editor.quickSuggestions": {
+        "other": "on",
+        "comments": "on",
+        "strings": "on",
+    },
+    // 保存・フォーマット
+    "editor.formatOnSave": true,
+    "files.autoSave": "afterDelay",
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true, // 行末の余分なスペースを消す
+    // Prettierの設定
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "prettier.printWidth": 100,
+    "prettier.tabWidth": 4,
+    "prettier.singleQuote": false,
+    "prettier.bracketSpacing": true,
+    "prettier.endOfLine": "auto",
+    "extensions.ignoreRecommendations": true,
+
+    // 他
+    "window.commandCenter": false,
+    "workbench.layoutControl.enabled": false,
+    "security.workspace.trust.untrustedFiles": "open",
+    // claudeCode
+    "claudeCode.useTerminal": true,
+    "explorer.confirmDelete": false,
+    // NeoVim
+    "vscode-neovim.NVIM_APPNAME": "nvim",
+    "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
+    "vscode-neovim.neovimInitVimPaths.linux": "~/.config/nvim/init.lua",
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1,
+    },
+    // Git
+    "git.autofetch": true,
+    // 言語
+    "files.associations": {
+        "*.css": "tailwindcss",
+    }, // tailwindcssを使うときに、*.cssで@Ruleが使えない問題の対策
+}
