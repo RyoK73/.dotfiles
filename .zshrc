@@ -54,6 +54,7 @@ alias ls="ls -a1"
 alias ccp="claude --permission-mode plan"
 alias cc="claude"
 alias cct="claude /think"
+
 # Git操作
 # Git remoteでマージ済みのローカルブランチを削除する
 git-cleanup() {
@@ -65,5 +66,10 @@ git-cleanup() {
   git branch
 }
 
-# dotfiles,bare git用
+# dotfiles用
 alias config="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+## alias
+alias dcm="config commit -m" # dotfiles commit -m
+alias dca="config commit -am" # dotfiles commit -am : 追跡しているファイルの変更をaddしてcommitする
+alias ds="config status" # dotfiles status : ステータス確認
+alias dp="config push"
