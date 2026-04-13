@@ -57,7 +57,7 @@ alias cct="claude /think"
 
 # Git操作
 # Git remoteでマージ済みのローカルブランチを削除する
-git-cleanup() {
+function git-cleanup() {
   git fetch --prune
   git branch -vv | grep ': gone]' | awk '{print $1}' | xargs git branch -d
   echo ""
@@ -67,7 +67,13 @@ git-cleanup() {
 }
 
 # dotfiles用
-alias config="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+function config() {
+  if [[ "$1" == "add" && ("$2" == "." || "$2" == "-A")]]; then
+    echo "HOME すべてを追跡することになるため、config add . / -A は無効化されています。"
+    return 1
+  fi
+  git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME "$@"
+}
 ## alias
 alias dcm="config commit -m" # dotfiles commit -m
 alias dca="config commit -am" # dotfiles commit -am : 追跡しているファイルの変更をaddしてcommitする
