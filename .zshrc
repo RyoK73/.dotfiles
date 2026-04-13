@@ -78,4 +78,4 @@ function config() {
 alias dcm="config commit -m" # dotfiles commit -m
 alias dca="config commit -am" # dotfiles commit -am : 追跡しているファイルの変更をaddしてcommitする
 alias ds="config status" # dotfiles status : ステータス確認
-alias dp="config push"
+alias dp="config push origin main"
