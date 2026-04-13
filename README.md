@@ -72,6 +72,7 @@ config checkout
 | `config status` | 日常使い | 変更されたファイルを確認する |
 | `config add ~/.zshrc` | 日常使い | ファイルをステージングに追加する |
 | `config commit -m "message"` | 日常使い | 変更をコミットする |
+| `config commit -am "message"` | 日常使い | 追跡ファイルの変更をステージしてコミットする |
 | `config push` | 日常使い | リモートに反映する |
 | `config diff` | 日常使い | 変更内容の差分を確認する |
 
