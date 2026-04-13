@@ -66,7 +66,7 @@ config checkout
 ```
 
 ## コマンド一覧
-
+### 日常の使い方
 | コマンド | ジャンル | 意味 |
 |---|---|---|
 | `config status` | 日常使い | 変更されたファイルを確認する |
@@ -74,6 +74,10 @@ config checkout
 | `config commit -m "message"` | 日常使い | 変更をコミットする |
 | `config push` | 日常使い | リモートに反映する |
 | `config diff` | 日常使い | 変更内容の差分を確認する |
+
+### 初期設定
+| コマンド | ジャンル | 意味 |
+|---|---|---|
 | `git init --bare $HOME/.dotfiles` | 初期設定 | bare リポジトリを作成する |
 | `config config --local status.showUntrackedFiles no` | 初期設定 | 未追跡ファイルを status に表示しないようにする |
 | `config remote add origin <url>` | 初期設定 | リモートリポジトリを登録する |
