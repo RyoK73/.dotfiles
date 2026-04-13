@@ -68,7 +68,7 @@ function git-cleanup() {
 
 # dotfiles用
 function config() {
-  if [[ "$1" == "add" && ("$2" == "." || "$2" == "-A")]]; then
+  if [[ "$1" == "add" && ( "$2" == "." || "$2" == "-A" ) ]]; then
     echo "HOME すべてを追跡することになるため、config add . / -A は無効化されています。"
     return 1
   fi
