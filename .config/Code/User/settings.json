@@ -5,6 +5,7 @@
     "editor.fontFamily": "PlemolJP Console NF Text",
     "editor.fontSize": 16,
     "editor.lineHeight": 1.5, // 行間
+    "editor.wordWrap": "on",
     // エディタ体験
     "editor.smoothScrolling": true, // スクロールをスムーズに
     "editor.renderWhitespace": "boundary",
@@ -51,5 +52,6 @@
     // 言語
     "files.associations": {
         "*.css": "tailwindcss",
-    }, // tailwindcssを使うときに、*.cssで@Ruleが使えない問題の対策
+    },
+    "gitlens.rebaseEditor.ordering": "asc", // tailwindcssを使うときに、*.cssで@Ruleが使えない問題の対策
 }

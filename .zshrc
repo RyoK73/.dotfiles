@@ -56,6 +56,8 @@ alias cc="claude"
 alias cct="claude /think"
 
 # Git操作
+alias gcm="git commit -m"
+alias gam="git commit --amend --no-edit"
 # Git remoteでマージ済みのローカルブランチを削除する
 function git-cleanup() {
   git fetch --prune
