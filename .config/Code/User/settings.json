@@ -47,11 +47,13 @@
     "extensions.experimental.affinity": {
         "asvetliakov.vscode-neovim": 1,
     },
+    "vscode-neovim.logOutputToConsole": false,
     // Git
     "git.autofetch": true,
     // 言語
     "files.associations": {
         "*.css": "tailwindcss",
     },
-    "gitlens.rebaseEditor.ordering": "asc", // tailwindcssを使うときに、*.cssで@Ruleが使えない問題の対策
+    "gitlens.rebaseEditor.ordering": "asc",
+    "chat.disableAIFeatures": true, // tailwindcssを使うときに、*.cssで@Ruleが使えない問題の対策
 }
