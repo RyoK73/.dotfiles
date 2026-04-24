@@ -1,71 +1,9 @@
 // 既定値を上書きするには、このファイル内にキー バインドを挿入します
 [
     {
-        "key": "ctrl+shift+/",
-        "command": "chatgpt.sidebarView.focus",
-    },
-    {
-        "key": "ctrl+n",
-        "command": "-chatgpt.newChat",
-        "when": "chatgpt.supportsNewChatKeyShortcut",
-    },
-    {
-        "key": "ctrl+shift+c ctrl+shift+d",
-        "command": "workbench.view.extension.codexViewContainer",
-    },
-    {
-        "key": "ctrl+2",
-        "command": "-workbench.action.focusSecondEditorGroup",
-    },
-    {
-        "key": "ctrl+2",
-        "command": "workbench.action.terminal.focus",
-        "when": "accessibilityModeEnabled && accessibleViewOnLastLine && terminalHasBeenCreated && accessibleViewCurrentProviderId == 'terminal' || accessibilityModeEnabled && accessibleViewOnLastLine && terminalProcessSupported && accessibleViewCurrentProviderId == 'terminal'",
-    },
-    {
-        "key": "ctrl+down",
-        "command": "-workbench.action.terminal.focus",
-        "when": "accessibilityModeEnabled && accessibleViewOnLastLine && terminalHasBeenCreated && accessibleViewCurrentProviderId == 'terminal' || accessibilityModeEnabled && accessibleViewOnLastLine && terminalProcessSupported && accessibleViewCurrentProviderId == 'terminal'",
-    },
-    {
-        "key": "ctrl+/",
-        "command": "-workbench.action.browser.newTab",
-        "when": "activeEditor == 'workbench.editor.browser'",
-    },
-    {
-        "key": "ctrl+/",
-        "command": "-workbench.action.showAllSymbols",
-    },
-    {
-        "key": "ctrl+/",
-        "command": "-extension.vim_ctrl+t",
-        "when": "editorTextFocus && vim.active && vim.use<C-t> && !inDebugRepl",
-    },
-    {
         "key": "ctrl+/",
         "command": "workbench.action.terminal.toggleTerminal",
         "when": "terminal.active",
-    },
-    {
-        "key": "ctrl+shift+[BracketLeft]",
-        "command": "-workbench.action.terminal.toggleTerminal",
-        "when": "terminal.active",
-    },
-    {
-        "key": "ctrl+b",
-        "command": "-workbench.action.toggleSidebarVisibility",
-    },
-    {
-        "key": "ctrl+0",
-        "command": "-workbench.action.focusSideBar",
-    },
-    {
-        "key": "ctrl+0",
-        "command": "workbench.action.toggleSidebarVisibility",
-    },
-    {
-        "key": "ctrl+0",
-        "command": "workbench.action.focusSideBar",
     },
     // ウィンドウ移動
     {
@@ -89,12 +27,6 @@
         "command": "workbench.action.focusLastEditorGroup",
         "when": "filesExplorerFocus",
     },
-    // {
-    //     "key": "space r",
-    //     "command": "vscode-neovim.send",
-    //     "args": ":reg\n",
-    //     "when": "editorTextFocus && neovim.mode == 'normal'",
-    // },
     // インテリセンスウィンドウ操作
     {
         "key": "ctrl+j",
