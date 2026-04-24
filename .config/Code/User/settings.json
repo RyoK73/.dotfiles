@@ -19,6 +19,8 @@
         "comments": "on",
         "strings": "on",
     },
+    "workbench.editor.limit.enabled": true, // タブ数の制限 制限に達すると使用頻度の低いものを自動的に閉じる
+    "workbench.editor.limit.value": 5, // タブ数の制限を5に設定
     // 保存・フォーマット
     "editor.formatOnSave": true,
     "files.autoSave": "afterDelay",
@@ -47,7 +49,11 @@
     "extensions.experimental.affinity": {
         "asvetliakov.vscode-neovim": 1,
     },
+    "vim.useSystemClipboard": true,
     "vscode-neovim.logOutputToConsole": false,
+    "vscode-neovim.neovimClean": true,
+    // Vim
+    "editor.editContext": false,
     // Git
     "git.autofetch": true,
     // 言語
@@ -55,5 +61,46 @@
         "*.css": "tailwindcss",
     },
     "gitlens.rebaseEditor.ordering": "asc",
-    "chat.disableAIFeatures": true, // tailwindcssを使うときに、*.cssで@Ruleが使えない問題の対策
+    "chat.disableAIFeatures": true,
+    "vim.easymotion": true,
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<space>"],
+            "commands": ["vspacecode.space"],
+        },
+        {
+            "before": [","],
+            "commands": [
+                "vspacecode.space",
+                {
+                    "command": "whichkey.triggerKey",
+                    "args": "m",
+                },
+            ],
+        },
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<space>"],
+            "commands": ["vspacecode.space"],
+        },
+        {
+            "before": [","],
+            "commands": [
+                "vspacecode.space",
+                {
+                    "command": "whichkey.triggerKey",
+                    "args": "m",
+                },
+            ],
+        },
+        {
+            "before": [">"],
+            "commands": ["editor.action.indentLines"],
+        },
+        {
+            "before": ["<"],
+            "commands": ["editor.action.outdentLines"],
+        },
+    ], // tailwindcssを使うときに、*.cssで@Ruleが使えない問題の対策
 }
