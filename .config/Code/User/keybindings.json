@@ -46,4 +46,9 @@
         },
         "when": "terminalFocus",
     },
+    {
+        "key": ":w",
+        "command": "runCommands",
+        "args": { "commands": ["editor.action.formatDocument", "workbench.action.files.save"] },
+    },
 ]
