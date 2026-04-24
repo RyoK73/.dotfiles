@@ -67,17 +67,6 @@
         "key": "ctrl+0",
         "command": "workbench.action.focusSideBar",
     },
-    // ファイルエクスプローラー操作
-    {
-        "key": "space e",
-        "command": "workbench.files.action.focusFilesExplorer",
-        "when": "neovim.mode !== insert && !filesExplorerFocus && editorTextFocus",
-    },
-    {
-        "key": "space e",
-        "command": "workbench.action.closeSidebar",
-        "when": "neovim.mode !== insert && filesExplorerFocus",
-    },
     // ウィンドウ移動
     {
         "key": "ctrl+l",
@@ -89,12 +78,23 @@
         "command": "workbench.action.previousEditor",
         "when": "!terminalFocus && !sideBarFocus && neovim.mode !== insert '",
     },
+    // ファイルエクスプローラー操作
     {
-        "key": "space r",
-        "command": "vscode-neovim.send",
-        "args": ":reg\n",
-        "when": "editorTextFocus && neovim.mode == 'normal'",
+        "key": "ctrl+e",
+        "command": "workbench.files.action.focusFilesExplorer",
+        "when": "!filesExplorerFocus",
     },
+    {
+        "key": "ctrl+e",
+        "command": "workbench.action.focusLastEditorGroup",
+        "when": "filesExplorerFocus",
+    },
+    // {
+    //     "key": "space r",
+    //     "command": "vscode-neovim.send",
+    //     "args": ":reg\n",
+    //     "when": "editorTextFocus && neovim.mode == 'normal'",
+    // },
     // インテリセンスウィンドウ操作
     {
         "key": "ctrl+j",
@@ -110,8 +110,8 @@
         "key": "shift+enter",
         "command": "workbench.action.terminal.sendSequence",
         "args": {
-            "text": "\u001b\r"
+            "text": "\u001b\r",
         },
-        "when": "terminalFocus"
+        "when": "terminalFocus",
     },
 ]
