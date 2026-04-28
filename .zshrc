@@ -7,6 +7,7 @@ bindkey -v
 
 # setopt
 setopt auto_cd
+setopt PROMPT_SUBST
 
 # zinit
 ZINIT_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/zinit/zinit.git"
@@ -29,12 +30,34 @@ zinit snippet OMZ::plugins/git/git.plugin.zsh # OMZのgitプラグインを追�
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-syntax-highlighting
 
-# oh-my-gitでプロンプトをグラフィカルに
-# zinit light arialdomartini/oh-my-git
-# zinit snippet arialdomartini/oh-my-git/themes/zsh-theme/oh-my-git.zsh-theme
 export PATH="$HOME/.local/bin:$PATH"
 
-PROMPT='%F{cyan}%~%f %# '
+# プロンプトをグラフィカルにスタイリング
+# --- prompt helpers ---
+
+parse_git_count() {
+    git status --porcelain 2>/dev/null | grep -cE "^ M|^\?\?|^ D"
+}
+
+_git_prompt() {
+    local branch
+    branch=$(git branch 2>/dev/null | grep '^*' | sed 's/^\* //')
+    [[ -z "$branch" ]] && return
+    if [[ $(git status -s 2>/dev/null) ]]; then
+        echo -n "%K{237}%F{yellow}%B  ${branch} 🔀 $(parse_git_count) %b%f%k"
+    else
+        echo -n "%K{237}%F{green}%B  ${branch} ✅ 0 %b%f%k"
+    fi
+}
+
+_venv_info() {
+    [[ -n "$VIRTUAL_ENV" ]] && echo -n "%K{green}%F{black} ${VIRTUAL_ENV##*/} %f%k"
+}
+
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+
+PROMPT='$(_venv_info)%K{magenta}%F{black} %n@%m %f%k%K{red}%F{white} 🧭 %~ %f%k$(_git_prompt)
+%B%F{green}╰> $ %f%b'
 
 # pnpm
 export PNPM_HOME="$HOME/.local/share/pnpm"
