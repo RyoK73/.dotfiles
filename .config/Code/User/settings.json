@@ -78,6 +78,14 @@
                 },
             ],
         },
+        {
+            "before": ["j"],
+            "after": ["g", "j"],
+        },
+        {
+            "before": ["k"],
+            "after": ["g", "k"],
+        },
     ],
     "vim.visualModeKeyBindingsNonRecursive": [
         {
