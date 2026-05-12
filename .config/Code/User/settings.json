@@ -121,5 +121,6 @@
             "before": ["<"],
             "commands": ["editor.action.outdentLines"],
         },
-    ], // tailwindcssを使うときに、*.cssで@Ruleが使えない問題の対策
+    ],
+    "js/ts.updateImportsOnFileMove.enabled": "always", // tailwindcssを使うときに、*.cssで@Ruleが使えない問題の対策
 }
