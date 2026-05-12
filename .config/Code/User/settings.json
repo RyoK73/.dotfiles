@@ -16,15 +16,15 @@
     "editor.mouseWheelZoom": true, // マウスホイールでズーム
     "editor.quickSuggestions": {
         "other": "on",
-        "comments": "on",
+        "comments": "off",
         "strings": "on",
     },
     "workbench.editor.limit.enabled": true, // タブ数の制限 制限に達すると使用頻度の低いものを自動的に閉じる
     "workbench.editor.limit.value": 5, // タブ数の制限を5に設定
     "editor.cursorSmoothCaretAnimation": "on", // カーソルのアニメーションをスムーズにする
     "editor.cursorBlinking": "smooth", // 同上
-    "window.openFilesInNewWindow": "on", // 新しいファイルを開くとき必ず新しいウィンドウで開く
-    "window.openFoldersInNewWindow": "on", // 新しいフォルダを開くとき必ず新しいウィンドウで開く
+    "window.openFilesInNewWindow": "default", // 新しいファイルを開くとき必ず新しいウィンドウで開く
+    "window.openFoldersInNewWindow": "default", // 新しいフォルダを開くとき必ず新しいウィンドウで開く
     // 保存・フォーマット
     "editor.formatOnSave": true,
     "files.autoSave": "afterDelay",
