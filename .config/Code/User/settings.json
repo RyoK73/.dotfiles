@@ -82,13 +82,20 @@
                 },
             ],
         },
+        // j(上移動)を見た目上の上移動にする
         {
             "before": ["j"],
             "after": ["g", "j"],
         },
+        // k(下移動)を見た目上の下移動にする
         {
             "before": ["k"],
             "after": ["g", "k"],
+        },
+        {
+            // ":w"でprettierを動作させる
+            "before": ["<leader>", "w"],
+            "commands": ["workbench.action.files.save"],
         },
     ],
     "vim.visualModeKeyBindingsNonRecursive": [
