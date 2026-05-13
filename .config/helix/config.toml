@@ -1,0 +1,81 @@
+theme = "dark_plus"
+
+[editor]
+true-color = true # トゥルーカラーを有効化（ターミナルが対応していれば自動検出されるが、誤検知対策で明示的にtrueにする）
+auto-completion = true # 自動補完を有効化（任意のキーで補完したい場合はfalseにしてkeys.insertでC-spaceなどに割り当てる）
+scrolloff = 5 # スクロール時にカーソル周辺に常に5行の余白を保つ（画面端に張り付かない）
+cursorcolumn = true # 現在の列をハイライト
+cursorline = true # 現在の行をハイライト
+bufferline = "multiple" # バッファが複数開いているときだけ上部にタブバーを表示（1つだけのときは非表示）
+indent-heuristic = "hybrid" # インデント計算にtree-sitterとシンプルな方法を組み合わせたハイブリッド方式を使う
+insert-final-newline = true # 保存時にファイル末尾の改行を自動で保証（gitのdiffに余計な差分が出なくなる）
+trim-trailing-whitespace = true # 保存時に行末の余分な空白を自動削除
+popup-border = "all" # 補完メニューやポップアップに枠線を表示して見やすくする
+end-of-line-diagnostics = "hint" # 行末にhint以上のdiagnosticsを表示する（"disable"で無効、"warning"/"error"で絞れる）
+auto-format = true # 保存時フォーマットを有効化
+line-number = "relative" # ライン番号を相対的にする
+
+[editor.auto-save] # 自動保存の設定
+focus-lost = true # フォーカスが外れたら自動保存（Claude Codeや別ペインに切り替えた瞬間に保存される）
+after-delay.enable = true # 最後の編集から一定時間後に自動保存
+after-delay.timeout = 3000 # 自動保存までの待機時間（ミリ秒）
+
+[editor.inline-diagnostics] # インラインdiagnosticsの設定（コード中にエラー・警告を直接表示する）
+cursor-line = "warning" # カーソルがいる行はwarning以上をインラインで表示（"disable"/"hint"/"info"/"warning"/"error"で絞れる）
+
+[editor.search] # 検索の設定
+smart-case = true # 小文字のみのパターンは大文字小文字を無視、大文字が混じると区別する（vimのsmartcaseと同じ）
+wrap-around = true # 最後まで検索したら先頭に折り返す
+
+[editor.statusline] # ステータスラインの設定
+left = ["mode", "spinner", "version-control", "file-modification-indicator"] # 左側：モード名・LSPスピナー・gitブランチ・ファイル変更状態
+center = ["read-only-indicator", "file-name", "primary-selection-length"] # 中央：読み取り専用インジケーター・ファイル名・選択文字数
+right = ["diagnostics", "workspace-diagnostics", "selections", "position", "total-line-numbers", "position-percentage", "file-indent-style", "file-encoding", "file-line-ending", "file-type"] # 右側：diagnostics件数・ワークスペース全体のdiagnostics・選択数・カーソル位置・総行数・位置%・インデント・エンコーディング・改行コード・ファイルタイプ
+separator = "│" # 各要素の区切り文字
+mode.normal = "🧭 NORMAL" # 左下に表示されるモード名（絵文字を入れても面白い）
+mode.insert = "📝 INSERT"
+mode.select = "🚛 SELECT"
+
+[editor.file-picker] # ファイルピッカーの設定
+max-depth = 6 # ファイルピッカーで検索するディレクトリの深さ（深くするほど遅くなる）
+hidden = false # 隠しファイル・ドットファイルをピッカーに表示する（falseで非表示）
+
+[editor.cursor-shape] # モードごとのカーソル形状
+normal = "block" # ノーマルモード：ブロック
+insert = "bar" # インサートモード：縦棒（どのモードかが一目でわかる）
+select = "underline" # セレクトモード：アンダーライン
+
+[editor.whitespace.render] # 空白文字の可視化設定
+space = "all" # スペースを可視化（"all"で常に表示、"none"で非表示）
+tab = "all" # タブを可視化
+newline = "all" # 改行を可視化
+
+[editor.whitespace.characters] # 空白文字の表示に使う文字
+space = "·"
+nbsp = "⍽"
+tab = "→"
+newline = "↲" # 改行記号（好みで "⏎" や "✔" なども使える）
+
+[editor.indent-guides] # インデントガイドの設定
+render = true # インデントの縦線を表示
+character = "|" # ガイドに使う文字（"▏" "┆" "┊" "╎" なども見やすい）
+
+[editor.soft-wrap] # ソフトラップの設定（ウィンドウ幅を超えた行を折り返して表示する）
+enable = true # ソフトラップを有効化（実際のファイルには改行は入らない）
+max-wrap = 20 # 行末の空きスペースの最大幅（大きくすると単語の途中での折り返しが減る）
+max-indent-retain = 20 # 折り返し時に引き継ぐインデントの最大数
+wrap-indicator = "" # 折り返し行の先頭に表示するインジケーター（空文字で非表示）
+
+[editor.lsp] # LSPの設定
+display-inlay-hints = true # インレイヒントを表示（変数の型や引数名が薄く表示される、LSP側も対応が必要）
+
+[keys.insert] # インサートモードのキーマップ
+j = { j = "normal_mode" } # jjでノーマルモードに戻る（ESCの代替）
+C-space = "completion" # Ctrl+Spaceで補完を手動トリガー
+
+[keys.normal] # ノーマルモードのキーマップ
+ret = ["open_below", "normal_mode"] # ノーマルモードでEnterを押すと下に改行を挿入してノーマルモードのままにする
+backspace = "delete_char_backward" # Backspaceで1文字削除
+tab = ":bn" # Tabで次のバッファへ移動
+S-tab = ":bp" # Shift+Tabで前のバッファへ移動
+"esc" = ["collapse_selection", "keep_primary_selection"] # ESCで選択を解除してハイライトをリセット（vimの nmap <Esc><Esc> :nohlsearch 相当）

@@ -1,0 +1,35 @@
+[language-server.tailwindcss-ls]
+command = "tailwindcss-language-server"
+args = ["--stdio"]
+
+[language-server.vscode-html-language-server]
+command = "vscode-html-language-server"
+args = ["--stdio"]
+
+[language-server.vscode-css-language-server]
+command = "vscode-css-language-server"
+args = ["--stdio"]
+
+[[language]]
+name = "html"
+language-servers = ["vscode-html-language-server"]
+formatter = { command = "prettier", args = ["--parser", "html"] }
+auto-format = true
+
+[[language]]
+name = "css"
+language-servers = ["vscode-css-language-server"]
+formatter = { command = "prettier", args = ["--parser", "css"] }
+auto-format = true
+
+[[language]]
+name = "typescript"
+language-servers = ["typescript-language-server"]
+formatter = { command = "prettier", args = ["--parser", "typescript"] }
+auto-format = true
+
+[[language]]
+name = "tsx"
+language-servers = ["typescript-language-server"]
+formatter = { command = "prettier", args = ["--parser", "babel-ts"] }
+auto-format = true
