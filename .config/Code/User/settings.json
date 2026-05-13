@@ -1,7 +1,7 @@
 {
     // 基本設定
     // フォント・色
-    "workbench.colorTheme": "Dark+",
+    "workbench.colorTheme": "Everforest Dark",
     "editor.fontFamily": "PlemolJP Console NF Text",
     "editor.fontSize": 16,
     "editor.lineHeight": 1.5, // 行間
@@ -56,8 +56,6 @@
     "vim.useSystemClipboard": true,
     "vscode-neovim.logOutputToConsole": false,
     "vscode-neovim.neovimClean": true,
-    // Vim
-    "editor.editContext": false,
     // Git
     "git.autofetch": true,
     // 言語
@@ -66,6 +64,9 @@
     },
     "gitlens.rebaseEditor.ordering": "asc",
     "chat.disableAIFeatures": true,
+    "vim.vimrc.path": "$HOME/.vimrc",
+    // VSCodeでのvimの設定
+    "editor.editContext": false,
     "vim.easymotion": true,
     "vim.normalModeKeyBindingsNonRecursive": [
         {
@@ -82,16 +83,16 @@
                 },
             ],
         },
-        // j(上移動)を見た目上の上移動にする
-        {
-            "before": ["j"],
-            "after": ["g", "j"],
-        },
-        // k(下移動)を見た目上の下移動にする
-        {
-            "before": ["k"],
-            "after": ["g", "k"],
-        },
+        // // j(上移動)を見た目上の上移動にする
+        // {
+        //     "before": ["j"],
+        //     "after": ["g", "j"],
+        // },
+        // // k(下移動)を見た目上の下移動にする
+        // {
+        //     "before": ["k"],
+        //     "after": ["g", "k"],
+        // },
         {
             // ":w"でprettierを動作させる
             "before": ["<leader>", "w"],
@@ -122,5 +123,8 @@
             "commands": ["editor.action.outdentLines"],
         },
     ],
-    "js/ts.updateImportsOnFileMove.enabled": "always", // tailwindcssを使うときに、*.cssで@Ruleが使えない問題の対策
+    "js/ts.updateImportsOnFileMove.enabled": "always",
+    "vim.vimrc.enable": true,
+    "vim.highlightedyank.enable": true,
+    "vim.hlsearch": true, // tailwindcssを使うときに、*.cssで@Ruleが使えない問題の対策
 }
