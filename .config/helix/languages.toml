@@ -30,6 +30,10 @@ auto-format = true
 
 [[language]]
 name = "tsx"
-language-servers = ["typescript-language-server"]
+language-servers = ["typescript-language-server","emmet-ls"]
 formatter = { command = "prettier", args = ["--parser", "babel-ts"] }
 auto-format = true
+
+[language-server.emmet-ls]
+command = "emmet-language-server"
+args = ["--stdio"]
