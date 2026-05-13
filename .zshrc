@@ -67,18 +67,33 @@ case ":$PATH:" in
 esac
 # pnpm end
 # env
-export EDITOR="code --wait"
+export EDITOR="helix"
 
 # alias
 # zsh
 alias ls="ls -a1"
 
+# helix
+alias hx="helix"
+
+# ===
 # claude code
+# ===
 alias ccp="claude --permission-mode plan"
 alias cc="claude"
 alias cct="claude /think"
 
-# Git操作
+# ===
+# npm
+# ===
+function pnpm-dev(){
+  fuser -k 3000/tcp
+  pnpm dev
+}
+
+# ===
+# Git
+# ===
 alias gcm="git commit -m"
 alias gam="git commit --amend --no-edit"
 # Git remoteでマージ済みのローカルブランチを削除する
@@ -91,7 +106,9 @@ function git-cleanup() {
   git branch
 }
 
+# ===
 # dotfiles用
+# ===
 function config() {
   if [[ "$1" == "add" && ( "$2" == "." || "$2" == "-A" ) ]]; then
     echo "HOME すべてを追跡することになるため、config add . / -A は無効化されています。"
