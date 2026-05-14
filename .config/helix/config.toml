@@ -1,4 +1,4 @@
-theme = "dark_plus"
+theme = "base16_transparent"
 
 [editor]
 true-color = true # トゥルーカラーを有効化（ターミナルが対応していれば自動検出されるが、誤検知対策で明示的にtrueにする）
@@ -14,6 +14,7 @@ popup-border = "all" # 補完メニューやポップアップに枠線を表示
 end-of-line-diagnostics = "hint" # 行末にhint以上のdiagnosticsを表示する（"disable"で無効、"warning"/"error"で絞れる）
 auto-format = true # 保存時フォーマットを有効化
 line-number = "relative" # ライン番号を相対的にする
+color-modes = true
 
 [editor.auto-save] # 自動保存の設定
 focus-lost = true # フォーカスが外れたら自動保存（Claude Codeや別ペインに切り替えた瞬間に保存される）
@@ -21,7 +22,7 @@ after-delay.enable = true # 最後の編集から一定時間後に自動保存
 after-delay.timeout = 3000 # 自動保存までの待機時間（ミリ秒）
 
 [editor.inline-diagnostics] # インラインdiagnosticsの設定（コード中にエラー・警告を直接表示する）
-cursor-line = "warning" # カーソルがいる行はwarning以上をインラインで表示（"disable"/"hint"/"info"/"warning"/"error"で絞れる）
+cursor-line = "hint" # カーソルがいる行はwarning以上をインラインで表示（"disable"/"hint"/"info"/"warning"/"error"で絞れる）
 
 [editor.search] # 検索の設定
 smart-case = true # 小文字のみのパターンは大文字小文字を無視、大文字が混じると区別する（vimのsmartcaseと同じ）
