@@ -96,6 +96,8 @@ function pnpm-dev(){
 # ===
 alias gcm="git commit -m"
 alias gam="git commit --amend --no-edit"
+alias gs="git status"
+alias gd="git diff"
 # Git remoteでマージ済みのローカルブランチを削除する
 function git-cleanup() {
   git fetch --prune
@@ -121,3 +123,14 @@ alias dcm="config commit -m" # dotfiles commit -m
 alias dca="config commit -am" # dotfiles commit -am : 追跡しているファイルの変更をaddしてcommitする
 alias ds="config status" # dotfiles status : ステータス確認
 alias dp="config push origin main"
+
+# ===
+# LIFE用
+# ===
+function life-tutor() {
+  if [[ -d "$HOME/dev/LIFE" ]]; then
+    cat "$HOME/dev/LIFE/README.md"
+  else
+    echo "${HOME}/dev/LIFEがありません"
+  fi
+}
