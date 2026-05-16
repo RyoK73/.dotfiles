@@ -1,15 +1,24 @@
+# ===
 # Lines configured by zsh-newuser-install
+# ===
+
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
 bindkey -v
 # End of lines configured by zsh-newuser-install
 
+# ===
 # setopt
+# ===
+
 setopt auto_cd
 setopt PROMPT_SUBST
 
+# ===
 # zinit
+# ===
+
 ZINIT_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/zinit/zinit.git"
 if [[ ! -d $ZINIT_HOME ]]; then
   mkdir -p "$(dirname $ZINIT_HOME)"
@@ -22,7 +31,11 @@ autoload -Uz compinit && compinit
 zinit light zsh-users/zsh-completions
 
 zinit light Aloxaf/fzf-tab # tabでファイル検索
+
+# ===
 # fzfキーバインディング
+# ===
+
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 zinit snippet OMZ::plugins/git/git.plugin.zsh # OMZのgitプラグインを追加する
@@ -32,7 +45,9 @@ zinit light zsh-users/zsh-syntax-highlighting
 
 export PATH="$HOME/.local/bin:$PATH"
 
+# ===
 # プロンプトをグラフィカルにスタイリング
+# ===
 # --- prompt helpers ---
 
 parse_git_count() {
@@ -59,27 +74,44 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 PROMPT='$(_venv_info)%K{magenta}%F{black} %n@%m %f%k%K{red}%F{white} 🧭 %~ %f%k$(_git_prompt)
 %B%F{green}╰> $ %f%b'
 
+# ===
+# env
+# ===
+
+export EDITOR="helix"
+
+# ===
 # pnpm
+# ===
+
 export PNPM_HOME="$HOME/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
-# pnpm end
-# env
-export EDITOR="helix"
 
-# alias
+function pnpm-dev(){
+  fuser -k 3000/tcp
+  pnpm dev
+}
+
+# ===
 # zsh
+# ===
+
 alias ls="ls -a1"
 alias cat="bat"
 
+# ===
 # helix
+# ===
+
 alias hx="helix"
 
 # ===
 # claude code
 # ===
+
 alias ccp="claude --permission-mode plan"
 alias cc="claude"
 alias cct="claude /think"
@@ -91,17 +123,11 @@ function claude-commands-tutor () {
   fi
 }
 
-# ===
-# npm
-# ===
-function pnpm-dev(){
-  fuser -k 3000/tcp
-  pnpm dev
-}
 
 # ===
 # Git
 # ===
+
 alias gcm="git commit -m"
 alias gam="git commit --amend --no-edit"
 alias gst="git status"
@@ -119,6 +145,7 @@ function git-cleanup() {
 # ===
 # dotfiles用
 # ===
+
 function config() {
   if [[ "$1" == "add" && ( "$2" == "." || "$2" == "-A" ) ]]; then
     echo "HOME すべてを追跡することになるため、config add . / -A は無効化されています。"
@@ -126,7 +153,7 @@ function config() {
   fi
   git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME "$@"
 }
-## alias
+
 alias dcm="config commit -m" # dotfiles commit -m
 alias dca="config commit -am" # dotfiles commit -am : 追跡しているファイルの変更をaddしてcommitする
 alias ds="config status" # dotfiles status : ステータス確認
@@ -135,6 +162,7 @@ alias dp="config push origin main"
 # ===
 # LIFE用
 # ===
+
 function life-tutor() {
   if [[ -d "$HOME/dev/LIFE" ]]; then
     cat "$HOME/dev/LIFE/README.md"
