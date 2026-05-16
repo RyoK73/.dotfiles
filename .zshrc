@@ -96,7 +96,7 @@ function pnpm-dev(){
 # ===
 alias gcm="git commit -m"
 alias gam="git commit --amend --no-edit"
-alias gs="git status"
+alias gst="git status"
 alias gd="git diff"
 # Git remoteでマージ済みのローカルブランチを削除する
 function git-cleanup() {
