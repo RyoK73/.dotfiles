@@ -82,6 +82,13 @@ alias hx="helix"
 alias ccp="claude --permission-mode plan"
 alias cc="claude"
 alias cct="claude /think"
+function claude-commands-tutor () {
+  if [[ -d "$HOME/.claude/commands-tutor.md" ]]; then
+    cat "$HOME/.claude/commands-tutor.md"
+  else
+    echo "$HOME/.claude/commands-tutor.mdがありません"
+  fi
+}
 
 # ===
 # npm
@@ -134,3 +141,4 @@ function life-tutor() {
     echo "${HOME}/dev/LIFEがありません"
   fi
 }
+
