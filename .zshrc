@@ -72,6 +72,7 @@ export EDITOR="helix"
 # alias
 # zsh
 alias ls="ls -a1"
+alias cat="bat"
 
 # helix
 alias hx="helix"
