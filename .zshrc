@@ -92,7 +92,7 @@ esac
 
 function pnpm-dev(){
   fuser -k 3000/tcp
-  pnpm dev
+  pnpm dev & disown
 }
 
 # ===
@@ -115,11 +115,11 @@ alias hx="helix"
 alias ccp="claude --permission-mode plan"
 alias cc="claude"
 alias cct="claude /think"
-function claude-commands-tutor () {
-  if [[ -d "$HOME/.claude/commands-tutor.md" ]]; then
-    cat "$HOME/.claude/commands-tutor.md"
+function skills-tutor () {
+  if [[ -f "$HOME/.claude/skills-tutor.md" ]]; then
+    cat "$HOME/.claude/skills-tutor.md"
   else
-    echo "$HOME/.claude/commands-tutor.mdがありません"
+    echo "$HOME/.claude/skills-tutor.mdがありません"
   fi
 }
 
