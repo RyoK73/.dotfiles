@@ -12,25 +12,29 @@ args = ["--stdio"]
 
 [[language]]
 name = "html"
+indent = { tab-width = 4,unit="    " }
 language-servers = ["vscode-html-language-server"]
 formatter = { command = "prettier", args = ["--parser", "html"] }
 auto-format = true
 
 [[language]]
 name = "css"
+indent = { tab-width = 4,unit="    " }
 language-servers = ["vscode-css-language-server"]
 formatter = { command = "prettier", args = ["--parser", "css"] }
 auto-format = true
 
 [[language]]
 name = "typescript"
+indent = { tab-width = 4,unit="    " }
 language-servers = ["typescript-language-server"]
 formatter = { command = "prettier", args = ["--parser", "typescript"] }
 auto-format = true
 
 [[language]]
 name = "tsx"
-language-servers = ["typescript-language-server","emmet-ls"]
+indent = { tab-width = 4,unit="    " }
+language-servers = ["typescript-language-server","tailwindcss-ls","emmet-ls"]
 formatter = { command = "prettier", args = ["--parser", "babel-ts"] }
 auto-format = true
 
