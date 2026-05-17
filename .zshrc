@@ -154,10 +154,10 @@ function config() {
   git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME "$@"
 }
 
-alias dcm="config commit -m" # dotfiles commit -m
-alias dca="config commit -am" # dotfiles commit -am : 追跡しているファイルの変更をaddしてcommitする
-alias ds="config status" # dotfiles status : ステータス確認
-alias dp="config push origin main"
+alias cocm="config commit -m" # dotfiles commit -m
+alias cocma="config commit -am" # dotfiles commit -am : 追跡しているファイルの変更をaddしてcommitする
+alias cost="config status" # dotfiles status : ステータス確認
+alias cop="config push origin main"
 
 # ===
 # LIFE用
