@@ -76,13 +76,7 @@ backspace = "delete_char_backward" # Backspaceで1文字削除
 tab = ":bn" # Tabで次のバッファへ移動
 S-tab = ":bp" # Shift+Tabで前のバッファへ移動
 "esc" = ["collapse_selection", "keep_primary_selection"] # ESCで選択を解除してハイライトをリセット（vimの nmap <Esc><Esc> :nohlsearch 相当）
-y = "yank_to_clipboard"
-p = "paste_clipboard_after"
-P = "paste_clipboard_before"
 
 [keys.insert] # インサートモードのキーマップ
 j = { j = "normal_mode" } # jjでノーマルモードに戻る（ESCの代替）
 C-space = "completion" # Ctrl+Spaceで補完を手動トリガー
-
-[keys.select]
-y = "yank_to_clipboard"
