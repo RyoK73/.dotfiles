@@ -101,6 +101,13 @@ function pnpm-dev(){
 
 alias ls="ls -a1"
 alias cat="bat"
+function treecat () {
+  if [[ "$1" == "" ]]; then
+    tree $PWD | cat
+  else
+    tree "$1" | cat
+  fi
+}
 
 # ===
 # helix
