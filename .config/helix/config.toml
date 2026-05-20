@@ -29,10 +29,10 @@ smart-case = true # 小文字のみのパターンは大文字小文字を無視
 wrap-around = true # 最後まで検索したら先頭に折り返す
 
 [editor.statusline] # ステータスラインの設定
-left = ["mode", "spinner", "version-control", "file-modification-indicator"] # 左側：モード名・LSPスピナー・gitブランチ・ファイル変更状態
-center = ["read-only-indicator", "file-name", "primary-selection-length"] # 中央：読み取り専用インジケーター・ファイル名・選択文字数
-right = ["diagnostics", "workspace-diagnostics", "selections", "position", "total-line-numbers", "position-percentage", "file-indent-style", "file-encoding", "file-line-ending", "file-type"] # 右側：diagnostics件数・ワークスペース全体のdiagnostics・選択数・カーソル位置・総行数・位置%・インデント・エンコーディング・改行コード・ファイルタイプ
-separator = "│" # 各要素の区切り文字
+left = ["mode", "spinner", "version-control",]
+center = ["total-line-numbers", "position-percentage", "file-encoding"]
+right = ["file-name"]
+separator = "│"
 mode.normal = "🧭 NORMAL" # 左下に表示されるモード名（絵文字を入れても面白い）
 mode.insert = "📝 INSERT"
 mode.select = "🚛 SELECT"
