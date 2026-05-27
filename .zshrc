@@ -188,3 +188,13 @@ function life-tutor() {
   fi
 }
 
+# ===
+# waybar
+# ===
+alias waybar-reload="pkill waybar && waybar & disown"
+
+
+# ===
+# hyprland
+# ===
+alias hypr-reload="hyprctl reload"
