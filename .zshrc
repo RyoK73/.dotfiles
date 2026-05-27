@@ -3,8 +3,8 @@
 # ===
 
 HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=10000
+SAVEHIST=10000
 bindkey -v
 # End of lines configured by zsh-newuser-install
 
@@ -35,6 +35,16 @@ zinit light Aloxaf/fzf-tab # tabでファイル検索
 # ===
 # fzfキーバインディング
 # ===
+## CTRL+Tの上下移動をTab/Shift+Tabで
+export FZF_CTRL_T_OPTS="
+  --bind='tab:down'
+  --bind='shift-tab:up'
+"
+## CTRL+Rの上下移動をTab/Shift+Tabで
+export FZF_CTRL_R_OPTS="
+  --bind='tab:down'
+  --bind='shift-tab:up'
+"
 
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
@@ -92,7 +102,7 @@ esac
 
 function pnpm-dev(){
   fuser -k 3000/tcp
-  pnpm dev & disown
+  pnpm dev
 }
 
 # ===
@@ -101,7 +111,7 @@ function pnpm-dev(){
 
 alias ls="ls -a1"
 alias cat="bat"
-function treecat () {
+function trc () {
   if [[ "$1" == "" ]]; then
     tree $PWD | cat
   else
