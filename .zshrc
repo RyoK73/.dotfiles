@@ -88,7 +88,7 @@ PROMPT='$(_venv_info)%K{magenta}%F{black} %n@%m %f%k%K{red}%F{white} 🧭 %~ %f%
 # env
 # ===
 
-export EDITOR="helix"
+export EDITOR="nvim"
 
 # ===
 # pnpm
@@ -171,6 +171,8 @@ function config() {
   git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME "$@"
 }
 
+alias coa="config add" # dotfiles commit -m
+alias coc="config commit" # dotfiles commit -m
 alias cocm="config commit -m" # dotfiles commit -m
 alias cocma="config commit -am" # dotfiles commit -am : 追跡しているファイルの変更をaddしてcommitする
 alias cost="config status" # dotfiles status : ステータス確認
