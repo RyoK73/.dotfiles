@@ -17,3 +17,6 @@ opt.expandtab = true
 -- 検索設定
 opt.ignorecase = true
 opt.smartcase = true
+
+-- スワップファイルの設定
+opt.swapfile = false
