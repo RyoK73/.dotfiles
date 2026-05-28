@@ -160,7 +160,7 @@ function git-cleanup() {
 }
 
 # ===
-# dotfiles用
+# dotfiles用/Config
 # ===
 
 function config() {
@@ -173,6 +173,9 @@ function config() {
 
 alias coa="config add" # dotfiles commit -m
 alias coc="config commit" # dotfiles commit -m
+function coac() {
+    config add "$1" && config commit
+}
 alias cocm="config commit -m" # dotfiles commit -m
 alias cocma="config commit -am" # dotfiles commit -am : 追跡しているファイルの変更をaddしてcommitする
 alias cost="config status" # dotfiles status : ステータス確認
