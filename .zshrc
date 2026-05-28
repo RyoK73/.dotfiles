@@ -152,7 +152,6 @@ function skills-tutor () {
 # ===
 # Git
 # ===
-
 alias gcm="git commit -m"
 alias gam="git commit --amend --no-edit"
 alias gst="git status"
@@ -180,7 +179,9 @@ function config() {
 }
 
 alias coa="config add" # dotfiles commit -m
+alias coap="config add -p"
 alias coc="config commit" # dotfiles commit -m
+alias crh="config reset HEAD"
 function coac() {
     config add "$1" && config commit
     
