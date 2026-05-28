@@ -1,3 +1,4 @@
+# ctrl+shift+,でリロード
 # Dynamic theme colors
 config-file = ?"~/.config/omarchy/current/theme/ghostty.conf"
 
