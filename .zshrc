@@ -39,6 +39,7 @@ zinit light Aloxaf/fzf-tab # tabでファイル検索
 
 # aliasをexpand
 zinit light MenkeTechnologies/zsh-expand 
+export ZPWR_EXPAND_TO_HISTORY=true
 export ZPWR_EXPAND_PREVIEW=true
 export ZPWR_EXPAND_PRE_EXEC_NATIVE=true
 # ===
@@ -66,7 +67,7 @@ bindkey "^P" forward-word
 
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
-zinit snippet OMZ::plugins/git/git.plugin.zsh # OMZのgitプラグインを追加する
+# zinit snippet OMZ::plugins/git/git.plugin.zsh # OMZのgitプラグインを追加する
 
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-syntax-highlighting
