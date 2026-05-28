@@ -1,1 +1,4 @@
 vim.keymap.set("n", "%", "ggVG", { desc = "Select all" })
+vim.keymap.set("n", "Y", "Vy", { desc = "Yank Line" })
+vim.keymap.set("n", "gl", "$", { desc = "Go to last word" })
+vim.keymap.set("n", "ge", "G", { desc = "Go to last row" })
