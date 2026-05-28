@@ -15,6 +15,8 @@ end-of-line-diagnostics = "hint" # 行末にhint以上のdiagnosticsを表示す
 auto-format = true # 保存時フォーマットを有効化
 line-number = "relative" # ライン番号を相対的にする
 color-modes = true
+auto-pairs = true
+
 
 [editor.auto-save] # 自動保存の設定
 focus-lost = true # フォーカスが外れたら自動保存（Claude Codeや別ペインに切り替えた瞬間に保存される）
@@ -23,6 +25,7 @@ after-delay.timeout = 3000 # 自動保存までの待機時間（ミリ秒）
 
 [editor.inline-diagnostics] # インラインdiagnosticsの設定（コード中にエラー・警告を直接表示する）
 cursor-line = "hint" # カーソルがいる行はwarning以上をインラインで表示（"disable"/"hint"/"info"/"warning"/"error"で絞れる）
+
 
 [editor.search] # 検索の設定
 smart-case = true # 小文字のみのパターンは大文字小文字を無視、大文字が混じると区別する（vimのsmartcaseと同じ）
@@ -80,3 +83,4 @@ S-tab = ":bp" # Shift+Tabで前のバッファへ移動
 [keys.insert] # インサートモードのキーマップ
 j = { j = "normal_mode" } # jjでノーマルモードに戻る（ESCの代替）
 C-space = "completion" # Ctrl+Spaceで補完を手動トリガー
+
