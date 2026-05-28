@@ -33,8 +33,11 @@ zinit light zsh-users/zsh-completions
 zinit light Aloxaf/fzf-tab # tabでファイル検索
 
 # ===
-# fzfキーバインディング
+# キーバインディング
 # ===
+#
+## fzf
+#
 ## CTRL+Tの上下移動をTab/Shift+Tabで
 export FZF_CTRL_T_OPTS="
   --bind='tab:down'
@@ -45,6 +48,12 @@ export FZF_CTRL_R_OPTS="
   --bind='tab:down'
   --bind='shift-tab:up'
 "
+
+# zsh
+
+bindkey "^A" autosuggest-accept
+bindkey "^P" forward-word
+
 
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
@@ -106,7 +115,7 @@ function pnpm-dev(){
 }
 
 # ===
-# zsh
+# Zsh
 # ===
 
 alias ls="ls -a1"
