@@ -175,6 +175,21 @@ alias coa="config add" # dotfiles commit -m
 alias coc="config commit" # dotfiles commit -m
 function coac() {
     config add "$1" && config commit
+    
+}
+function coacu() {
+    if [[ -d "$1" ]]; then
+        config add -u "$1" && config commit
+    else
+        echo "$1はディレクトリではありません"
+    fi
+}
+function coacup() {
+    if [[ -d "$1" ]]; then
+        config add -up "$1" && config commit
+    else
+        echo "$1はディレクトリではありません"
+    fi
 }
 alias cocm="config commit -m" # dotfiles commit -m
 alias cocma="config commit -am" # dotfiles commit -am : 追跡しているファイルの変更をaddしてcommitする
