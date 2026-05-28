@@ -126,13 +126,7 @@ alias -s {md,ts,tsx,js,jsx,json,jsonc,conf,toml,yaml,yml,toml,html,css,zshrc}=$E
 
 alias ls="ls -a1"
 alias cat="bat"
-function trc () {
-  if [[ "$1" == "" ]]; then
-    tree $PWD | cat
-  else
-    tree "$1" | cat
-  fi
-}
+alias trc="tree $PWD | cat"
 
 # ===
 # helix
