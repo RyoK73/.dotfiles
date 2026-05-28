@@ -39,7 +39,7 @@ zinit light Aloxaf/fzf-tab # tabでファイル検索
 
 # aliasをexpand
 export ZPWR_EXPAND_TO_HISTORY=true
-export ZPWR_EXPAND_PRE_EXEC_NATIVE=true
+# export ZPWR_EXPAND_PRE_EXEC_NATIVE=true
 zinit light MenkeTechnologies/zsh-expand 
 # ===
 # キーバインディング
