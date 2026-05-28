@@ -1,4 +1,9 @@
 # ===
+# env
+# ===
+
+export EDITOR="nvim"
+# ===
 # Lines configured by zsh-newuser-install
 # ===
 
@@ -97,11 +102,6 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 PROMPT='$(_venv_info)%K{magenta}%F{black} %n@%m %f%k%K{red}%F{white} 🧭 %~ %f%k$(_git_prompt)
 %B%F{green}╰> $ %f%b'
 
-# ===
-# env
-# ===
-
-export EDITOR="nvim"
 
 # ===
 # pnpm
@@ -121,6 +121,7 @@ function pnpm-dev(){
 # ===
 # Zsh
 # ===
+alias -s {md,ts,tsx,js,jsx,json,jsonc,conf,toml,yaml,yml,toml,html,css,zshrc}=$EDITOR
 
 alias ls="ls -a1"
 alias cat="bat"
