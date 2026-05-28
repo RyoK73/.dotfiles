@@ -1,7 +1,4 @@
 {
-    // 基本設定
-    // フォント・色
-    "workbench.colorTheme": "Everforest Dark",
     "editor.fontFamily": "PlemolJP Console NF Text",
     "editor.fontSize": 16,
     "editor.lineHeight": 1.5, // 行間
