@@ -181,6 +181,7 @@ function config() {
 alias coa="config add" # dotfiles commit -m
 alias coap="config add -p"
 alias coc="config commit" # dotfiles commit -m
+alias coca="config commit -a"
 alias crh="config reset HEAD"
 function coac() {
     config add "$1" && config commit
