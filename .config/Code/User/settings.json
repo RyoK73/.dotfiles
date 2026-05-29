@@ -1,4 +1,4 @@
-{
+{ "workbench.colorTheme": "Catppuccin Mocha",
     "editor.fontFamily": "PlemolJP Console NF Text",
     "editor.fontSize": 16,
     "editor.lineHeight": 1.5, // 行間

@@ -99,8 +99,12 @@ _venv_info() {
 
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 
-PROMPT='$(_venv_info)%K{magenta}%F{black} %n@%m %f%k%K{red}%F{white} 🧭 %~ %f%k$(_git_prompt)
+PROMPT='$(_venv_info)%K{green}%F{black} %n@%m %f%k%K{blue}%F{black} 🧭 %~ %f%k$(_git_prompt)
 %B%F{green}╰> $ %f%b'
+
+ZSH_HIGHLIGHT_STYLES[argument]=`fg=#ffffff`
+ZSH_HIGHLIGHT_STYLES[string]=`fg=#ffffff`
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#ffffff:waybar'
 
 
 # ===

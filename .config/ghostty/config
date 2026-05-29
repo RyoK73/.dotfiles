@@ -36,3 +36,9 @@ mouse-scroll-multiplier = 0.95
 
 # Working Directory
 working-directory = $HOME
+
+# shader
+# custom-shader = shaders/cursor_warp_sonic_boom.glsl
+
+# Fix general slowness on hyprland (https://github.com/ghostty-org/ghostty/discussions/3224)
+async-backend = epoll
