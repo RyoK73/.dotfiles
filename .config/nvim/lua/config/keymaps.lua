@@ -1,3 +1,5 @@
+vim.keymap.set("n", "<Tab>", "<cmd>BufferLineCycleNext<CR>", { desc = "Next buffer", silent = true })
+vim.keymap.set("n", "<S-Tab>", "<cmd>BufferLineCyclePrev<CR>", { desc = "Prev buffer", silent = true })
 vim.keymap.set("n", "%", "ggVG", { desc = "Select all" })
 vim.keymap.set("n", "Y", "Vy", { desc = "Yank Line" })
 vim.keymap.set("n", "gl", "$", { desc = "Go to last word" })
