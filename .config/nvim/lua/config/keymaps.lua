@@ -3,4 +3,5 @@ vim.keymap.set("n", "<S-Tab>", "<cmd>BufferLineCyclePrev<CR>", { desc = "Prev bu
 vim.keymap.set("n", "%", "ggVG", { desc = "Select all" })
 vim.keymap.set("n", "Y", "Vy", { desc = "Yank Line" })
 vim.keymap.set("n", "gl", "$", { desc = "Go to last word" })
-vim.keymap.set("n", "ge", "G", { desc = "Go to last row" })
+vim.keymap.set("n", "U", "<C-r>", { desc = "redo" })
+vim.keymap.set("n", "<leader>F", vim.diagnostic.open_float, { desc = "Go to error float" })

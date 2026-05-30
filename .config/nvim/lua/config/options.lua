@@ -7,7 +7,7 @@ opt.listchars = {
 }
 opt.wrap = true
 opt.linebreak = true
-opt.whichwrap = "b,s,<,>,[,]"
+opt.whichwrap:append("b,s,<,>,[,],h,l")
 
 -- タブとインデントの設定
 opt.tabstop = 4

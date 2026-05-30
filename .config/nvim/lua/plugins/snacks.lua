@@ -3,23 +3,19 @@ return {
   opts = {
     explorer = {
       enabled = true,
-      win = {
-        keys = {
-          ["<Tab>"] = "down",
-          ["<S-Tab>"] = "up",
-        },
-      },
     },
     picker = {
-      actions = {
-        tab_next = { action = "list_down" },
-        tab_prev = { action = "list_up" },
-      },
       win = {
         input = {
           keys = {
-            ["<Tab>"] = { "tab_next", mode = { "i", "n" } },
-            ["<S-Tab>"] = { "tab_prev", mode = { "i", "n" } },
+            ["<Tab>"] = { "list_down", mode = { "i", "n" } },
+            ["<S-Tab>"] = { "list_up", mode = { "i", "n" } },
+          },
+        },
+        list = {
+          keys = {
+            ["<Tab>"] = { "list_down", mode = { "n", "x" } },
+            ["<S-Tab>"] = { "list_up", mode = { "n", "x" } },
           },
         },
       },
