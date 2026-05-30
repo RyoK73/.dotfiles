@@ -65,6 +65,11 @@ config checkout 2>&1 | grep "\t" | awk '{print $1}' | xargs -I{} mv {} ~/.dotfil
 config checkout
 ```
 
+# Theme
+```
+https://github.com/RyoK73/omarchy-catppuccin-glass.git
+```
+
 ## コマンド一覧
 ### 日常の使い方
 | コマンド | ジャンル | 意味 |
