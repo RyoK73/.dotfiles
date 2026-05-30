@@ -39,6 +39,7 @@
             "10": "📝₀",
         },
         "persistent-workspaces": {
+            "eDP-1":[1,2,3,4,5],
             "DP-2":[1,2,3,4,5,6],
             "DP-3":[7,8,9,10]
         },
@@ -66,7 +67,7 @@
     },
     "clock": {
         // "format": "{:L%A %H:%M}", 元の文字列
-        "format": "{:L%m-%d %a %I:%M %p - %j日目}",
+        "format": "{:L%m-%d %a %I:%M %p}",
         "format-alt": "{:L%d %B W%V %Y}",
         "tooltip": true,
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
