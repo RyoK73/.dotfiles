@@ -1,13 +1,13 @@
 ---
 name: devnote
-description: 開発中の質問・デバッグ情報・解決策、または /think セッションの議論をマークダウンとして ~/dev/LIFE/zettelkasten/literature/ に保存する
+description: 開発中の質問・デバッグ情報・解決策、または /think セッションの議論をマークダウンとして ~/dev/LIFE/notes/ に保存する
 argument-hint: [範囲・内容の指示]
 allowed-tools: [Read, Write, Edit,Bash]
 ---
 
 # devnote
 
-会話・セッション・PR Reviewまたは `/think` セッションの議論を `~/dev/LIFE/zettelkasten/literature/` に保存する。
+会話・セッション・PR Reviewまたは `/think` セッションの議論を `~/dev/LIFE/notes/` に保存する。
 
 ## 引数
 
@@ -77,7 +77,7 @@ test -d ~/dev/LIFE
 
 ### Step 4: ファイルパスの決定
 
-- **保存先:** `~/dev/LIFE/zettelkasten/literature/`
+- **保存先:** `~/dev/LIFE/notes/`
 - **日時プレフィックスの取得:**
 
 ```bash
@@ -89,7 +89,7 @@ date +%Y%m%d%H%M
   - 例: タイトルが `React useEffectの無限ループを修正`、日時が `202605141430` → `202605141430-ReactuseEffectの無限ループを修正.md`
   - 英数字はそのまま残し、スペース・句読点・記号は除去する
 
-`~/dev/LIFE/zettelkasten/literature/` が存在しない場合は作成する：
+`~/dev/LIFE/notes/` が存在しない場合は作成する：
 
 ```bash
 mkdir -p ~/dev/LIFE/zettelkasten/literature
@@ -205,7 +205,7 @@ cd ~/dev/LIFE
 git checkout main
 
 # 2. ファイルをステージング
-git add zettelkasten/literature/{YYYYMMDDHHMI}-{slug}.md
+git add notes/{YYYYMMDDHHMI}-{slug}.md
 
 # 3. コミット
 git commit -m "note: {タイトル}"
@@ -221,7 +221,7 @@ git push origin main
 以下の形式で報告する：
 
 ```
-保存しました: ~/dev/LIFE/zettelkasten/literature/{YYYYMMDDHHMI}-{slug}.md
+保存しました: ~/dev/LIFE/notes/{YYYYMMDDHHMI}-{slug}.md
 タイプ: {type} | タグ: {tags}
 main → push済み
 ```

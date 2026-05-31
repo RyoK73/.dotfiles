@@ -6,7 +6,7 @@ context: fork
 
 # GTD Inbox整理
 
-`~/dev/LIFE/gtd/inbox/` のアイテムを1件ずつ対話形式で整理する。
+`~/dev/LIFE/tasks/inbox/` のアイテムを1件ずつ対話形式で整理する。
 
 ## Step 0: GitHub Issue → Inbox同期
 
@@ -18,7 +18,7 @@ gh issue list --repo RyoK73/LIFE --state open --json number,title,body,labels,cr
 
 取得したIssueそれぞれについて：
 
-1. `~/dev/LIFE/gtd/inbox/YYYYMMDD-HHMMSS-issue-<number>.md` を作成する：
+1. `~/dev/LIFE/tasks/inbox/YYYYMMDD-HHMMSS-issue-<number>.md` を作成する：
 
 ```markdown
 ---
@@ -56,12 +56,12 @@ Issueが0件なら同期をスキップして次のステップへ進む。
 
 **Q1: このアイテムはアクション可能ですか？**
 - `yes` → Q2へ
-- `no` → 参照資料か削除か確認。参照なら `zettelkasten/fleeting/` へ移動、削除なら削除
-- `waiting` → `gtd/waiting/` へ移動、誰を待っているか追記
-- `someday` → `gtd/someday/` へ移動
+- `no` → 参照資料か削除か確認。参照なら `notes/` へ移動、削除なら削除
+- `waiting` → `tasks/waiting/` へ移動、誰を待っているか追記
+- `someday` → `tasks/someday/` へ移動
 
 **Q2: 2分以内にできますか？**
-- `yes` → 「今すぐやりましょう」と伝え、完了後 `gtd/next-actions/done/` へ
+- `yes` → 「今すぐやりましょう」と伝え、完了後 `tasks/next/done/` へ
 - `no` → Q3へ
 
 **Q3: コンテキストは？**
@@ -72,11 +72,10 @@ Issueが0件なら同期をスキップして次のステップへ進む。
 
 **Q5: プロジェクトに属しますか？**
 - プロジェクト名を入力、または `none`
-- プロジェクト名がある場合、`gtd/projects/<name>.md` が存在しなければ新規作成
 
 ### Next-Actionファイルの作成
 
-`gtd/next-actions/items/YYYYMMDD-HHMMSS-<slug>.md` を以下の形式で作成：
+`tasks/next/YYYYMMDD-HHMMSS-<slug>.md` を以下の形式で作成：
 
 ```markdown
 ---
@@ -100,4 +99,4 @@ priority: medium
 - waiting: X件
 - someday: X件
 - 削除: X件
-- 参照(fleeting): X件
+- notes移動: X件

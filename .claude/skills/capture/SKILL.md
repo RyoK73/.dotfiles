@@ -11,7 +11,7 @@ argument-hint: <キャプチャする内容>
 ## 手順
 
 1. 現在の日時を取得して、ファイル名を `YYYYMMDD-HHMMSS.md` 形式で決める
-2. `~/dev/LIFE/gtd/inbox/` に以下の形式でファイルを作成する：
+2. `~/dev/LIFE/tasks/inbox/` に以下の形式でファイルを作成する：
 
 ```markdown
 ---
