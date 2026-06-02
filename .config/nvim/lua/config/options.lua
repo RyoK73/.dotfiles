@@ -13,6 +13,8 @@ opt.whichwrap:append("b,s,<,>,[,],h,l")
 opt.tabstop = 4
 opt.shiftwidth = 4
 opt.expandtab = true
+opt.autoindent = true
+opt.smartindent = true
 
 -- 検索設定
 opt.ignorecase = true
@@ -21,3 +23,7 @@ opt.incsearch = true
 
 -- スワップファイルの設定
 opt.swapfile = false
+
+-- 十字線
+opt.cursorline = true
+opt.cursorcolumn = true
