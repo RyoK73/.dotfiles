@@ -1,5 +1,4 @@
 return {
-  { "folke/tokyonight.nvim", enabled = false },
   -- onedarkを追加
   {
     "navarasu/onedark.nvim",
