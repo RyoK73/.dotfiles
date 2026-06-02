@@ -130,6 +130,7 @@ alias -s {md,ts,tsx,js,jsx,json,jsonc,conf,toml,yaml,yml,toml,html,css,zshrc}=$E
 alias ls="ls -a1"
 alias cat="bat"
 alias trc="tree . | cat"
+alias xopen="xdg-open"
 
 # ===
 # helix
