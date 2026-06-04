@@ -66,7 +66,7 @@ bindkey "^P" forward-word
 
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
-zinit snippet OMZ::plugins/git/git.plugin.zsh # OMZのgitプラグインを追加する
+# zinit snippet OMZ::plugins/git/git.plugin.zsh # OMZのgitプラグインを追加する
 
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-syntax-highlighting
@@ -157,6 +157,9 @@ function skills-tutor () {
 # ===
 # Git
 # ===
+alias ga="git add --verbose"
+alias gap="git add --verbose -p"
+alias gc="git commit --verbose"
 alias gcm="git commit -m"
 alias gam="git commit --amend --no-edit"
 alias gst="git status"
@@ -190,6 +193,7 @@ alias coa="config add" # dotfiles commit -m
 alias coap="config add -p"
 alias coc="config commit" # dotfiles commit -m
 alias coca="config commit -a"
+alias cocp="config commit -p"
 alias crh="config reset HEAD"
 function coac() {
     config add "$1" && config commit
