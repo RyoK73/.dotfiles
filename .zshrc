@@ -157,13 +157,23 @@ function skills-tutor () {
 # ===
 # Git
 # ===
+alias gsw="git switch"
+alias gswc="git switch -c"
+
 alias ga="git add --verbose"
 alias gap="git add --verbose -p"
+
 alias gc="git commit --verbose"
 alias gcm="git commit -m"
-alias gam="git commit --amend --no-edit"
+alias gcam="git commit --amend --no-edit"
+
 alias gst="git status"
+
+alias gp="git push"
+alias gpr="git pull --rebase"
+
 alias gd="git diff"
+
 alias gss="git stash push -m"
 alias gsp="git stash pop"
 alias gsl="git stash list"
