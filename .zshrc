@@ -241,12 +241,8 @@ function life-tutor() {
 }
 
 # ===
-# waybar
+# ショートカットalias
 # ===
 alias waybar-reload="pkill waybar && waybar & disown"
-
-
-# ===
-# hyprland
-# ===
 alias hypr-reload="hyprctl reload"
+alias mozc-setup="fcitx5-config-qt"
