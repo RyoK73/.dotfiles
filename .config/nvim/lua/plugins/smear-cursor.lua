@@ -1,7 +1,7 @@
 return {
   "sphamba/smear-cursor.nvim",
   opts = {
-    cursor_color = "#05e17c",
+    cursor_color = "#01d6e4",
     particles_enabled = true,
     stiffness = 0.5,
     trailing_stiffness = 0.2,
