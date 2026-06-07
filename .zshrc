@@ -149,9 +149,9 @@ alias hx="helix"
 # claude code
 # ===
 
-alias ccp="claude --permission-mode plan"
 alias cc="claude"
 alias cct="claude /think"
+alias ccr="claude -r"
 function skills-tutor () {
   if [[ -f "$HOME/.claude/skills-tutor.md" ]]; then
     cat "$HOME/.claude/skills-tutor.md"
