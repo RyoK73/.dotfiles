@@ -134,6 +134,11 @@ alias cat="bat"
 alias trc="tree . | cat"
 alias xopen="xdg-open"
 
+# catしたファイルの内容をコピーする
+function catc() {
+  cat "$1" | wl-copy
+}
+
 # ===
 # helix
 # ===
