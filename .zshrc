@@ -117,8 +117,10 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 
+alias killport="fuser -k 3000/tcp 2>/dev/null"
+
 function pnpm-dev(){
-  fuser -k 3000/tcp
+  fuser -k 3000/tcp 2>/dev/null
   pnpm dev
 }
 
