@@ -165,7 +165,9 @@ alias gap="git add --verbose -p"
 
 alias gc="git commit --verbose"
 alias gcm="git commit -m"
-alias gcam="git commit --amend --no-edit"
+alias gcp="git commit -p"
+alias gcam="git commit --amend"
+alias gcamn="git commit --amend --no-edit"
 
 alias gst="git status"
 
