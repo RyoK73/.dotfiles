@@ -186,6 +186,7 @@ alias gd="git diff"
 alias gss="git stash push -m"
 alias gsp="git stash pop"
 alias gsl="git stash list"
+
 # Git remoteでマージ済みのローカルブランチを削除する
 function git-cleanup() {
   git fetch --prune
@@ -194,6 +195,13 @@ function git-cleanup() {
   echo 💫残りのローカルブランチ💫
   echo ""
   git branch
+}
+
+# どこでもgit issue
+function ghis() {
+  local dir=$(find ~/dev -maxdepth 1 -type d | fzf --prompt "cd: " --preview 'ls {}')
+  [ -n "$dir" ] && cd "$dir"
+  gh issue create -F ~/dev/conf/1-idea.md -e
 }
 
 # ===
