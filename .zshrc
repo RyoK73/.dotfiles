@@ -198,10 +198,29 @@ function git-cleanup() {
 }
 
 # どこでもgit issue
+# dev/confにあるテンプレートはconfigで管理
 function ghis() {
   local dir=$(find ~/dev -maxdepth 1 -type d | fzf --prompt "cd: " --preview 'ls {}')
   [ -n "$dir" ] && cd "$dir"
   gh issue create -F ~/dev/conf/1-idea.md -e
+}
+
+# git worktree
+
+function gwt() {
+  if ! git rev-parse --git-dir &>/dev/null; then
+    echo "not a git directory"
+    return
+  elif ! git rev-parse HEAD --git-dir &>/dev/null; then
+    echo "commitがありません"
+    return
+  elif [[ -z "$1" ]]; then
+    echo "ブランチ名を指定してください"
+    return
+  fi
+  local branchdir="../$(basename $(git rev-parse --show-toplevel))-$1"
+  git worktree add -b "$1" "$branchdir" "${2:-main}"
+  cd "$branchdir"
 }
 
 # ===
