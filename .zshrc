@@ -202,7 +202,7 @@ function git-cleanup() {
 function ghis() {
   local dir=$(find ~/dev -maxdepth 1 -type d | fzf --prompt "cd: " --preview 'ls {}')
   [ -n "$dir" ] && cd "$dir"
-  gh issue create -F ~/dev/conf/1-idea.md -e
+  gh issue create -F ~/dev/conf/1-idea.md -e -t"idea: "
 }
 
 # git worktree
