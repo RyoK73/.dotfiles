@@ -44,6 +44,7 @@
 | スキル | 引数 | 説明 |
 |---|---|---|
 | /pr-review | [PRタイトルのヒント] | 変更の意図・設計を壁打ちし、5観点レビュー後にPR下書き作成 |
+| /post-review | [記事ファイルパス or slug] | ブログ記事を5軸で監査。公開前の品質チェック |
 
 ## その他
 
@@ -77,3 +78,4 @@
 - `~/.claude/skills/curriculum/SKILL.md`
 - `~/.claude/skills/create-issues/SKILL.md`
 - `~/.claude/skills/pr-review/SKILL.md`
+- `~/.claude/skills/post-review/SKILL.md`
