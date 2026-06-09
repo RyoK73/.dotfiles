@@ -191,15 +191,33 @@ alias gsl="git stash list"
 function git-cleanup() {
   git fetch --prune
   git branch -vv | grep ': gone]' | awk '{print $1}' | xargs git branch -d
-  echo ""
+  echo
   echo 💫残りのローカルブランチ💫
-  echo ""
+  echo
+  git branch
+}
+
+# merge済みのgit worktreeを削除する
+# ディレクトリの削除・ブランチの削除
+function git-cut() {
+  git fetch --prune
+  git branch -vv | grep ': gone' | awk '{
+    if ($1 == "+") {
+      gsub(/[()]/,"",$4); print $2,$4
+    } else { print $1,"" }
+  }' | while read branch wt_path; do
+    [[ -n "$wt_path" ]] && git worktree remove "$wt_path"
+    git branch -d "$branch"
+  done
+  echo
+  echo 💫残りのローカルブランチ💫
+  echo
   git branch
 }
 
 # どこでもgit issue
 # dev/confにあるテンプレートはconfigで管理
-function ghis() {
+function git-idea() {
   local dir=$(find ~/dev -maxdepth 1 -type d | fzf --prompt "cd: " --preview 'ls {}')
   [ -n "$dir" ] && cd "$dir"
   gh issue create -F ~/dev/conf/1-idea.md -e -t"idea: "
@@ -207,7 +225,7 @@ function ghis() {
 
 # git worktree
 
-function gwt() {
+function git-plant() {
   if ! git rev-parse --git-dir &>/dev/null; then
     echo "not a git directory"
     return
