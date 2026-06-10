@@ -6,6 +6,7 @@ return {
     "tex",
     "plaintex",
     "norg",
+    "gitcommit",
   },
   config = function()
     require("autolist").setup()
