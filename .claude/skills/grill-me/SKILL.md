@@ -1,10 +1,12 @@
 ---
 name: grill-me
-description: Interview the user relentlessly about a plan or design until reaching shared understanding, resolving each branch of the decision tree. Use when user wants to stress-test a plan, get grilled on their design, or mentions "grill me".
+description: 実装の壁打ち専用チャットモード。計画や設計についてユーザーを徹底的にインタビューし、決定木の各分岐を解決しながら共通理解に達する。「考えをまとめたい」「実装方針を声に出して整理したい」「誰かに話しながら考えたい」ときに使う。
 ---
 
-Interview me relentlessly about every aspect of this plan until we reach a shared understanding. Walk down each branch of the design tree, resolving dependencies between decisions one-by-one. For each question, provide your recommended answer.
+質問をする際は`AskUserQuestion`ツールを用いて質問すること。
 
-Ask the questions one at a time.
+この計画のあらゆる側面について、共通理解に達するまで容赦なくインタビューを行う。設計ツリーの各分岐を一つずつ辿り、決定間の依存関係を順番に解決していく。各質問には、推奨する回答も提示すること。
 
-If a question can be answered by exploring the codebase, explore the codebase instead.
+質問は一度に一つずつ行うこと。
+
+コードベースを調べることで答えられる質問がある場合は、インタビューの代わりにコードベースを調べること。
