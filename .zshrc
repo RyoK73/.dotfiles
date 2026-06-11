@@ -199,7 +199,7 @@ function git-cleanup() {
 
 # merge済みのgit worktreeを削除する
 # ディレクトリの削除・ブランチの削除
-function git-cut() {
+function gitc() {
   git fetch
   git branch -vv | grep ': gone' | awk '{
     if ($1 == "+") {
@@ -217,7 +217,7 @@ function git-cut() {
 
 # どこでもgit issue
 # dev/confにあるテンプレートはconfigで管理
-function git-idea() {
+function giti() {
   local dir=$(find ~/dev -maxdepth 1 -type d | fzf --prompt "cd: " --preview 'ls {}')
   [ -n "$dir" ] && cd "$dir"
   gh issue create -F ~/dev/conf/1-idea.md -e -t"idea: "
@@ -225,7 +225,7 @@ function git-idea() {
 
 # git worktree
 
-function git-plant() {
+function gitp() {
   if ! git rev-parse --git-dir &>/dev/null; then
     echo "not a git directory"
     return
