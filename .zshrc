@@ -200,7 +200,7 @@ function git-cleanup() {
 # merge済みのgit worktreeを削除する
 # ディレクトリの削除・ブランチの削除
 function git-cut() {
-  git fetch --prune
+  git fetch
   git branch -vv | grep ': gone' | awk '{
     if ($1 == "+") {
       gsub(/[()]/,"",$4); print $2,$4
