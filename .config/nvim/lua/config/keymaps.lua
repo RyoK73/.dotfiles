@@ -2,6 +2,7 @@ vim.keymap.set("n", "<Tab>", "<cmd>BufferLineCycleNext<CR>", { desc = "Next buff
 vim.keymap.set("n", "<S-Tab>", "<cmd>BufferLineCyclePrev<CR>", { desc = "Prev buffer", silent = true })
 vim.keymap.set("n", "%", "ggVG", { desc = "Select all" })
 vim.keymap.set("n", "Y", "Vy", { desc = "Yank Line" })
+vim.keymap.set("n", "gs", "^", { desc = "Go to first word" })
 vim.keymap.set("n", "gl", "$", { desc = "Go to last word" })
 vim.keymap.set("n", "U", "<C-r>", { desc = "redo" })
 vim.keymap.set("n", "<enter>", "o", { desc = "line break" })
