@@ -201,14 +201,14 @@ function git-cleanup() {
 # merge済みのgit worktreeを削除する
 # ディレクトリの削除・ブランチの削除
 function gitc() {
-  git fetch
+  git fetch --prune
   git branch -vv | grep ': gone' | awk '{
     if ($1 == "+") {
       gsub(/[()]/,"",$4); print $2,$4
     } else { print $1,"" }
   }' | while read branch wt_path; do
     [[ -n "$wt_path" ]] && git worktree remove "$wt_path"
-    git branch -d "$branch"
+    git branch -D "$branch"
   done
   echo
   echo 💫残りのローカルブランチ💫
