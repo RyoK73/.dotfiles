@@ -152,6 +152,7 @@ alias hx="helix"
 alias cc="claude"
 alias cct="claude /think"
 alias ccr="claude -r"
+alias ccc="claude -c"
 function skills-tutor () {
   if [[ -f "$HOME/.claude/skills-tutor.md" ]]; then
     cat "$HOME/.claude/skills-tutor.md"
