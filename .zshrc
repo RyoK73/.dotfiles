@@ -237,7 +237,8 @@ function gitp() {
     echo "ブランチ名を指定してください"
     return
   fi
-  git fetch --prune
+
+  git pull --rebase origin main
 
   local repo
   repo=$(basename $(git remote get-url origin) .git) || repo=$(basename $(git rev-parse --show-toplevel)) # ディレクトリではなく、remote repositoryを基準にprefixを決定、remote repositoryがなければディレクトリ名にフォールバック
