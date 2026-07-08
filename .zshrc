@@ -146,6 +146,10 @@ function catc() {
 alias hx="helix"
 
 # ===
+# Neovim・Nvim
+# ===
+alias nv="nvim"
+# ===
 # claude code
 # ===
 
