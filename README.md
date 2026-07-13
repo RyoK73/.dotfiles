@@ -66,26 +66,40 @@ config checkout
 ```
 
 # Theme
+
 ```
 https://github.com/RyoK73/omarchy-catppuccin-glass.git
 ```
 
 ## コマンド一覧
+
 ### 日常の使い方
-| コマンド | ジャンル | 意味 |
-|---|---|---|
-| `config status` | 日常使い | 変更されたファイルを確認する |
-| `config add ~/.zshrc` | 日常使い | ファイルをステージングに追加する |
-| `config commit -m "message"` | 日常使い | 変更をコミットする |
+
+| コマンド                      | ジャンル | 意味                                         |
+| ----------------------------- | -------- | -------------------------------------------- |
+| `config status`               | 日常使い | 変更されたファイルを確認する                 |
+| `config add ~/.zshrc`         | 日常使い | ファイルをステージングに追加する             |
+| `config commit -m "message"`  | 日常使い | 変更をコミットする                           |
 | `config commit -am "message"` | 日常使い | 追跡ファイルの変更をステージしてコミットする |
-| `config push` | 日常使い | リモートに反映する |
-| `config diff` | 日常使い | 変更内容の差分を確認する |
+| `config push`                 | 日常使い | リモートに反映する                           |
+| `config diff`                 | 日常使い | 変更内容の差分を確認する                     |
 
 ### 初期設定
-| コマンド | ジャンル | 意味 |
-|---|---|---|
-| `git init --bare $HOME/.dotfiles` | 初期設定 | bare リポジトリを作成する |
+
+| コマンド                                             | ジャンル | 意味                                           |
+| ---------------------------------------------------- | -------- | ---------------------------------------------- |
+| `git init --bare $HOME/.dotfiles`                    | 初期設定 | bare リポジトリを作成する                      |
 | `config config --local status.showUntrackedFiles no` | 初期設定 | 未追跡ファイルを status に表示しないようにする |
-| `config remote add origin <url>` | 初期設定 | リモートリポジトリを登録する |
-| `git clone --bare <url> $HOME/.dotfiles` | 復元 | bare 形式でリポジトリをクローンする |
-| `config checkout` | 復元 | ファイルを `$HOME` の正しいパスに展開する |
+| `config remote add origin <url>`                     | 初期設定 | リモートリポジトリを登録する                   |
+| `git clone --bare <url> $HOME/.dotfiles`             | 復元     | bare 形式でリポジトリをクローンする            |
+| `config checkout`                                    | 復元     | ファイルを `$HOME` の正しいパスに展開する      |
+
+## ファイル編集QA
+
+### Workspace(Super+Numで移動するタブ)
+
+| 変更内容 | ファイル                                                  |
+| -------- | --------------------------------------------------------- |
+| アイコン | `./.config/waybar/config.jsonc` - `format-icons`          |
+| 配置     | `./.config/hypr/hosts/*.conf`                             |
+| 配置     | `./.config/waybar/config.jsonc` - `persistent-workspaces` |
