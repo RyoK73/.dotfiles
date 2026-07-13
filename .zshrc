@@ -183,8 +183,10 @@ alias gcamn="git commit --amend --no-edit"
 
 alias gst="git status"
 
-alias gp="git push"
-alias gpr="git pull --rebase"
+alias gps="git push"
+alias gps-r="git push --force-with-lease" # ローカルが最新の場合のみgit push --forceが成功する
+
+alias gpl-r="git pull --rebase"
 
 alias gd="git diff"
 
