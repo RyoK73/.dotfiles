@@ -252,6 +252,8 @@ function gitp() {
   local branchdir="../$repo-$1"
   git worktree add -b "$1" "$branchdir" # mainからではなく現ブランチから生成する
   cd "$branchdir"
+
+  git push # 作成したブランチのままremoteへpush(要upstream)
 }
 
 # ===
