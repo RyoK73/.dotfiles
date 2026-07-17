@@ -315,3 +315,11 @@ function life-tutor() {
 alias waybar-reload="pkill waybar && waybar & disown"
 alias hypr-reload="hyprctl reload"
 alias mozc-setup="fcitx5-config-qt"
+
+# pnpm
+export PNPM_HOME="/home/taruroma/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME/bin:"*) ;;
+  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+esac
+# pnpm end
