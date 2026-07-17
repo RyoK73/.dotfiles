@@ -92,7 +92,7 @@ context: fork
 ### C-3. GTD への連携提案
 
 面接系アクション（`interview1`, `interview2`, `final`）の場合:
-「面接日程はお決まりですか？ /capture で GTD inbox に登録すると管理しやすくなりまする」と提案する。
+「面接日程はお決まりですか？ /capture で GTD inbox に登録すると管理しやすくなります」と提案する。
 
 ### C-4. 報告
 
