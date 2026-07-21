@@ -13,7 +13,14 @@
 
 ## 開発
 
-- 開発作業（機能追加・修正）を始める際は、今チェックアウト中のブランチ・ディレクトリのまま進めず、必ずgit worktreeで別ディレクトリに移動してから作業すること。
-- git worktreeの作成・削除は必ず `.zshrc` の関数を使うこと。手動で `git worktree add` 等を組み立てない。
-  - 作成: `gitp <branch名>` （現在のブランチから分岐し、`../{remote repository名}-{branch名}` に作成、cdしてpushまで行う）
-  - 削除: `gitc` （merge済み・goneになったworktreeとブランチを一括削除）
+- 開発作業（機能追加・修正）を始める際は、まず`.git`
+  がファイルかディレクトリか確認すること（例: `test -f .git`）。
+    - ファイルの場合：すでにgit worktree内にいるので、「このworktreeディレクトリで作業を
+  続けてよいか」をユーザーに確認する。
+      - 承認された場合：そのまま作業を進める（追加でworktreeを切らない）。
+  拒否された場合：mainリポジトリに戻るか、別のworktreeを使うかユーザーの指示を仰ぐ。
+    - ディレクトリの場合：mainリポジトリ（worktreeでない状態）なので、必ずgit
+  worktreeで別ディレクトリに移動してから作業すること。
+  - git worktreeの作成・削除は必ず `.zshrc` の関数を使うこと。手動で `git worktree add`等を組み立てない。
+- 作成: `gitp <branch名>` （現在のブランチから分岐し、`../{remote repository名}-{branch名}` に作成、cdしてpushまで行う）
+- 削除: `gitc` （merge済み・goneになったworktreeとブランチを一括削除）
