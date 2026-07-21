@@ -323,3 +323,7 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME/bin:$PATH" ;;
 esac
 # pnpm end
+
+# claude-tasks
+export CLAUDE_TASKS_HOME="/home/taruroma/dev/claude-tasks-feat-init-dir"
+export PATH="$HOME/.local/bin:$PATH"
