@@ -324,3 +324,6 @@ esac
 # claude-tasks
 export CLAUDE_TASKS_HOME="/home/taruroma/dev/claude-tasks-feat-init-dir"
 export PATH="$HOME/.local/bin:$PATH"
+
+# gists-tips-manager
+source "/home/taruroma/dev/gists-tips-manager-feat-add-tips-command/scripts/gists-tips-manager.zsh"
