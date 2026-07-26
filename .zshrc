@@ -40,7 +40,7 @@ zinit light Aloxaf/fzf-tab # tabでファイル検索
 # aliasをexpand
 export ZPWR_EXPAND_TO_HISTORY=true
 # export ZPWR_EXPAND_PRE_EXEC_NATIVE=true
-zinit light MenkeTechnologies/zsh-expand 
+zinit light MenkeTechnologies/zsh-expand
 # ===
 # キーバインディング
 # ===
@@ -63,7 +63,6 @@ export FZF_CTRL_R_OPTS="
 bindkey "^A" autosuggest-accept
 bindkey "^P" forward-word
 
-
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 # zinit snippet OMZ::plugins/git/git.plugin.zsh # OMZのgitプラグインを追加する
@@ -79,22 +78,22 @@ export PATH="$HOME/.local/bin:$PATH"
 # --- prompt helpers ---
 
 parse_git_count() {
-    git status --porcelain 2>/dev/null | grep -cE "^ M|^\?\?|^ D"
+  git status --porcelain 2>/dev/null | grep -cE "^ M|^\?\?|^ D"
 }
 
 _git_prompt() {
-    local branch
-    branch=$(git branch 2>/dev/null | grep '^*' | sed 's/^\* //')
-    [[ -z "$branch" ]] && return
-    if [[ $(git status -s 2>/dev/null) ]]; then
-        echo -n "%K{237}%F{#fbd254}%B  ${branch} 🔀 $(parse_git_count) %b%f%k"
-    else
-        echo -n "%K{237}%F{#57f2c1}%B  ${branch} ✅ 0 %b%f%k"
-    fi
+  local branch
+  branch=$(git branch 2>/dev/null | grep '^*' | sed 's/^\* //')
+  [[ -z "$branch" ]] && return
+  if [[ $(git status -s 2>/dev/null) ]]; then
+    echo -n "%K{237}%F{#fbd254}%B  ${branch} 🔀 $(parse_git_count) %b%f%k"
+  else
+    echo -n "%K{237}%F{#57f2c1}%B  ${branch} ✅ 0 %b%f%k"
+  fi
 }
 
 _venv_info() {
-    [[ -n "$VIRTUAL_ENV" ]] && echo -n "%K{#00c666}%F{#343534} ${VIRTUAL_ENV##*/} %f%k"
+  [[ -n "$VIRTUAL_ENV" ]] && echo -n "%K{#00c666}%F{#343534} ${VIRTUAL_ENV##*/} %f%k"
 }
 
 export VIRTUAL_ENV_DISABLE_PROMPT=1
@@ -102,10 +101,9 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 PROMPT='$(_venv_info)%K{#00c666}%F{#343534} %n@%m %f%k%K{#59a4ff}%F{#343534} 🧭 %~ %f%k$(_git_prompt)
 %B%F{#00c666}╰> $ %f%b'
 
-ZSH_HIGHLIGHT_STYLES[argument]=`fg=#ffffff`
-ZSH_HIGHLIGHT_STYLES[string]=`fg=#ffffff`
+ZSH_HIGHLIGHT_STYLES[argument]=$(fg=#ffffff)
+ZSH_HIGHLIGHT_STYLES[string]=$(fg=#ffffff)
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#ffffff:waybar'
-
 
 # ===
 # pnpm
@@ -113,13 +111,13 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#ffffff:waybar'
 
 export PNPM_HOME="$HOME/.local/share/pnpm"
 case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
+*":$PNPM_HOME:"*) ;;
+*) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 
 alias killport="fuser -k 3000/tcp 2>/dev/null"
 
-function pnpm-dev(){
+function pnpm-dev() {
   fuser -k 3000/tcp 2>/dev/null
   pnpm dev
 }
@@ -157,14 +155,13 @@ alias cc="claude"
 alias cct="claude /think"
 alias ccr="claude -r"
 alias ccc="claude -c"
-function skills-tutor () {
+function skills-tutor() {
   if [[ -f "$HOME/.claude/skills-tutor.md" ]]; then
     cat "$HOME/.claude/skills-tutor.md"
   else
     echo "$HOME/.claude/skills-tutor.mdがありません"
   fi
 }
-
 
 # ===
 # Git
@@ -261,7 +258,7 @@ function gitp() {
 # ===
 
 function config() {
-  if [[ "$1" == "add" && ( "$2" == "." || "$2" == "-A" ) ]]; then
+  if [[ "$1" == "add" && ("$2" == "." || "$2" == "-A") ]]; then
     echo "HOME すべてを追跡することになるため、config add . / -A は無効化されています。"
     return 1
   fi
@@ -275,26 +272,26 @@ alias coca="config commit -a"
 alias cocp="config commit -p"
 alias crh="config reset HEAD"
 function coac() {
-    config add "$1" && config commit
-    
+  config add "$1" && config commit
+
 }
 function coacu() {
-    if [[ -d "$1" ]]; then
-        config add -u "$1" && config commit
-    else
-        echo "$1はディレクトリではありません"
-    fi
+  if [[ -d "$1" ]]; then
+    config add -u "$1" && config commit
+  else
+    echo "$1はディレクトリではありません"
+  fi
 }
 function coacup() {
-    if [[ -d "$1" ]]; then
-        config add -up "$1" && config commit
-    else
-        echo "$1はディレクトリではありません"
-    fi
+  if [[ -d "$1" ]]; then
+    config add -up "$1" && config commit
+  else
+    echo "$1はディレクトリではありません"
+  fi
 }
-alias cocm="config commit -m" # dotfiles commit -m
+alias cocm="config commit -m"   # dotfiles commit -m
 alias cocma="config commit -am" # dotfiles commit -am : 追跡しているファイルの変更をaddしてcommitする
-alias cost="config status" # dotfiles status : ステータス確認
+alias cost="config status"      # dotfiles status : ステータス確認
 alias cop="config push origin main"
 
 # ===
@@ -319,8 +316,8 @@ alias mozc-setup="fcitx5-config-qt"
 # pnpm
 export PNPM_HOME="/home/taruroma/.local/share/pnpm"
 case ":$PATH:" in
-  *":$PNPM_HOME/bin:"*) ;;
-  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+*":$PNPM_HOME/bin:"*) ;;
+*) export PATH="$PNPM_HOME/bin:$PATH" ;;
 esac
 # pnpm end
 
