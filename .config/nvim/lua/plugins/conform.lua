@@ -28,6 +28,7 @@ return {
           "--config",
           os.getenv("HOME") .. "/.config/prettier/.prettierrc",
         },
+        append_args = { "--ignore-path", ".prettierignore" },
       },
     },
   },
