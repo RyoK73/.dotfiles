@@ -5,17 +5,13 @@ return {
       bashls = {
         filetypes = { "sh", "bash", "zsh" },
       },
-      vtsls = {
-        settings = {
-          typescript = {
-            preferences = {
-              includeCompletionsForModuleExports = true,
-              includeCompletionsForImportStatements = true,
-            },
+      ts_ls = {
+        init_options = {
+          preferences = {
+            importModuleSpecifierPreference = "non-relative", -- "non-relative" や "project-relative" も可
           },
         },
       },
     },
-    vim.lsp.enable("postgres_lsp"),
   },
 }
