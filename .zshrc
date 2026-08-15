@@ -26,8 +26,8 @@ setopt PROMPT_SUBST
 
 ZINIT_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/zinit/zinit.git"
 if [[ ! -d $ZINIT_HOME ]]; then
-  mkdir -p "$(dirname $ZINIT_HOME)"
-  git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+	mkdir -p "$(dirname $ZINIT_HOME)"
+	git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 fi
 
 source "${ZINIT_HOME}/zinit.zsh"
@@ -78,22 +78,22 @@ export PATH="$HOME/.local/bin:$PATH"
 # --- prompt helpers ---
 
 parse_git_count() {
-  git status --porcelain 2>/dev/null | grep -cE "^ M|^\?\?|^ D"
+	git status --porcelain 2>/dev/null | grep -cE "^ M|^\?\?|^ D"
 }
 
 _git_prompt() {
-  local branch
-  branch=$(git branch 2>/dev/null | grep '^*' | sed 's/^\* //')
-  [[ -z "$branch" ]] && return
-  if [[ $(git status -s 2>/dev/null) ]]; then
-    echo -n "%K{237}%F{#fbd254}%B  ${branch} 🔀 $(parse_git_count) %b%f%k"
-  else
-    echo -n "%K{237}%F{#57f2c1}%B  ${branch} ✅ 0 %b%f%k"
-  fi
+	local branch
+	branch=$(git branch 2>/dev/null | grep '^*' | sed 's/^\* //')
+	[[ -z "$branch" ]] && return
+	if [[ $(git status -s 2>/dev/null) ]]; then
+		echo -n "%K{237}%F{#fbd254}%B  ${branch} 🔀 $(parse_git_count) %b%f%k"
+	else
+		echo -n "%K{237}%F{#57f2c1}%B  ${branch} ✅ 0 %b%f%k"
+	fi
 }
 
 _venv_info() {
-  [[ -n "$VIRTUAL_ENV" ]] && echo -n "%K{#00c666}%F{#343534} ${VIRTUAL_ENV##*/} %f%k"
+	[[ -n "$VIRTUAL_ENV" ]] && echo -n "%K{#00c666}%F{#343534} ${VIRTUAL_ENV##*/} %f%k"
 }
 
 export VIRTUAL_ENV_DISABLE_PROMPT=1
@@ -118,23 +118,25 @@ esac
 alias killport="fuser -k 3000/tcp 2>/dev/null"
 
 function pnpm-dev() {
-  fuser -k 3000/tcp 2>/dev/null
-  pnpm dev
+	fuser -k 3000/tcp 2>/dev/null
+	pnpm dev
 }
 
 # ===
 # Zsh
 # ===
-alias -s {md,ts,tsx,js,jsx,json,jsonc,conf,toml,yaml,yml,toml,html,css,zshrc}=$EDITOR
+alias -s {sh,md,lua,ts,tsx,js,jsx,json,jsonc,conf,toml,yaml,yml,toml,html,css,zshrc}=$EDITOR
 
 alias ls="ls -a1"
 alias cat="bat"
 alias trc="tree . | cat"
 alias xopen="xdg-open"
 
+alias cdnv="cd $HOME/.config/nvim/lua/plugins"
+
 # catしたファイルの内容をコピーする
 function catc() {
-  cat "$1" | wl-copy
+	cat "$1" | wl-copy
 }
 
 # ===
@@ -151,16 +153,33 @@ alias nv="nvim"
 # claude code
 # ===
 
-alias cc="claude"
-alias cct="claude /think"
+function cc() {
+	if [[ -z "$1" ]]; then
+		echo "セッション名を指定してください"
+		echo "例：cc session-name"
+		return 1
+	fi
+	claude --name "$1"
+}
+
+function cct() {
+	if [[ -z "$1" ]]; then
+		echo "セッション名を指定してください"
+		echo "例：cc session-name"
+		return 1
+	fi
+	claude /think --name "think-${1}"
+}
+
 alias ccr="claude -r"
 alias ccc="claude -c"
+
 function skills-tutor() {
-  if [[ -f "$HOME/.claude/skills-tutor.md" ]]; then
-    cat "$HOME/.claude/skills-tutor.md"
-  else
-    echo "$HOME/.claude/skills-tutor.mdがありません"
-  fi
+	if [[ -f "$HOME/.claude/skills-tutor.md" ]]; then
+		cat "$HOME/.claude/skills-tutor.md"
+	else
+		echo "$HOME/.claude/skills-tutor.mdがありません"
+	fi
 }
 
 # ===
@@ -193,64 +212,69 @@ alias gsl="git stash list"
 
 # Git remoteでマージ済みのローカルブランチを削除する
 function git-cleanup() {
-  git fetch --prune
-  git branch -vv | grep ': gone]' | awk '{print $1}' | xargs git branch -d
-  echo
-  echo 💫残りのローカルブランチ💫
-  echo
-  git branch
+	git fetch --prune
+	git branch -vv | grep ': gone]' | awk '{print $1}' | xargs git branch -d
+	echo
+	echo 💫残りのローカルブランチ💫
+	echo
+	git branch
 }
 
 # merge済みのgit worktreeを削除する
 # ディレクトリの削除・ブランチの削除
 function gitc() {
-  git fetch --prune
-  git branch -vv | grep ': gone' | awk '{
+	git fetch --prune
+	git branch -vv | grep ': gone' | awk '{
     if ($1 == "+") {
       gsub(/[()]/,"",$4); print $2,$4
     } else { print $1,"" }
   }' | while read branch wt_path; do
-    [[ -n "$wt_path" ]] && git worktree remove "$wt_path"
-    git branch -D "$branch"
-  done
-  echo
-  echo 💫残りのローカルブランチ💫
-  echo
-  git branch
+		[[ -n "$wt_path" ]] && git worktree remove "$wt_path"
+		git branch -D "$branch"
+	done
+	echo
+	echo 💫残りのローカルブランチ💫
+	echo
+	git branch
 }
 
 # どこでもgit issue
 # dev/confにあるテンプレートはconfigで管理
 function giti() {
-  local dir=$(find ~/dev -maxdepth 1 -type d | fzf --prompt "cd: " --preview 'ls {}')
-  [ -n "$dir" ] && cd "$dir"
-  gh issue create -F ~/dev/conf/1-idea.md -e -t"idea: "
+	trap 'return 130' 2
+	local dir=$(find ~/dev -maxdepth 1 -type d | fzf --prompt "cd: " --preview 'ls {}')
+	[ -n "$dir" ] && cd "$dir"
+	gh issue create -F ~/dev/conf/1-idea.md -e -t"idea: "
 }
 
 # git worktree
 
 function gitp() {
-  if ! git rev-parse --git-dir &>/dev/null; then
-    echo "not a git directory"
-    return
-  elif ! git rev-parse HEAD --git-dir &>/dev/null; then
-    echo "commitがありません"
-    return
-  elif [[ -z "$1" ]]; then
-    echo "ブランチ名を指定してください"
-    return
-  fi
+	if ! git rev-parse --git-dir &>/dev/null; then
+		echo "not a git directory"
+		return
+	elif ! git rev-parse HEAD --git-dir &>/dev/null; then
+		echo "commitがありません"
+		return
+	elif [[ -z "$1" ]]; then
+		echo "ブランチ名を指定してください"
+		return
+	fi
 
-  git pull --rebase origin main
+	git pull --rebase origin main
 
-  local repo
-  repo=$(basename $(git remote get-url origin) .git) || repo=$(basename $(git rev-parse --show-toplevel)) # ディレクトリではなく、remote repositoryを基準にprefixを決定、remote repositoryがなければディレクトリ名にフォールバック
+	local repo
+	repo=$(basename $(git remote get-url origin) .git) || repo=$(basename $(git rev-parse --show-toplevel)) # ディレクトリではなく、remote repositoryを基準にprefixを決定、remote repositoryがなければディレクトリ名にフォールバック
 
-  local branchdir="../$repo-$1"
-  git worktree add -b "$1" "$branchdir" # mainからではなく現ブランチから生成する
-  cd "$branchdir"
+	local branchdir="../$repo-$1"
+	git worktree add -b "$1" "$branchdir" # mainからではなく現ブランチから生成する
+	cd "$branchdir"
 
-  git push # 作成したブランチのままremoteへpush(要upstream)
+	git push # 作成したブランチのままremoteへpush(要upstream)
+
+	if [[ -n "$2" ]]; then
+		bash "$HOME/.claude/skills/project-sync/scripts/sync.sh" start "$2"
+	fi
 }
 
 # ===
@@ -258,11 +282,11 @@ function gitp() {
 # ===
 
 function config() {
-  if [[ "$1" == "add" && ("$2" == "." || "$2" == "-A") ]]; then
-    echo "HOME すべてを追跡することになるため、config add . / -A は無効化されています。"
-    return 1
-  fi
-  git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME "$@"
+	if [[ "$1" == "add" && ("$2" == "." || "$2" == "-A") ]]; then
+		echo "HOME すべてを追跡することになるため、config add . / -A は無効化されています。"
+		return 1
+	fi
+	git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME "$@"
 }
 
 alias coa="config add" # dotfiles commit -m
@@ -272,22 +296,22 @@ alias coca="config commit -a"
 alias cocp="config commit -p"
 alias crh="config reset HEAD"
 function coac() {
-  config add "$1" && config commit
+	config add "$1" && config commit
 
 }
 function coacu() {
-  if [[ -d "$1" ]]; then
-    config add -u "$1" && config commit
-  else
-    echo "$1はディレクトリではありません"
-  fi
+	if [[ -d "$1" ]]; then
+		config add -u "$1" && config commit
+	else
+		echo "$1はディレクトリではありません"
+	fi
 }
 function coacup() {
-  if [[ -d "$1" ]]; then
-    config add -up "$1" && config commit
-  else
-    echo "$1はディレクトリではありません"
-  fi
+	if [[ -d "$1" ]]; then
+		config add -up "$1" && config commit
+	else
+		echo "$1はディレクトリではありません"
+	fi
 }
 alias cocm="config commit -m"   # dotfiles commit -m
 alias cocma="config commit -am" # dotfiles commit -am : 追跡しているファイルの変更をaddしてcommitする
@@ -299,11 +323,11 @@ alias cop="config push origin main"
 # ===
 
 function life-tutor() {
-  if [[ -d "$HOME/dev/LIFE" ]]; then
-    cat "$HOME/dev/LIFE/README.md"
-  else
-    echo "${HOME}/dev/LIFEがありません"
-  fi
+	if [[ -d "$HOME/dev/LIFE" ]]; then
+		cat "$HOME/dev/LIFE/README.md"
+	else
+		echo "${HOME}/dev/LIFEがありません"
+	fi
 }
 
 # ===
@@ -321,9 +345,9 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-# claude-tasks
-export CLAUDE_TASKS_HOME="/home/taruroma/dev/claude-tasks-feat-init-dir"
-export PATH="$HOME/.local/bin:$PATH"
-
 # gists-tips-manager
 source "/home/taruroma/dev/gists-tips-manager-feat-add-tips-command/scripts/gists-tips-manager.zsh"
+
+# claude-tasks
+export CLAUDE_TASKS_HOME="/home/taruroma/dev/claude-tasks"
+export PATH="$HOME/.local/bin:$PATH"
