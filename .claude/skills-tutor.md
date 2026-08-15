@@ -9,6 +9,7 @@
 | /map | [@ファイル（省略可）] | 頭の霧を晴らし課題を具体化。ドキュメント＆GitHub Issue保存 |
 | /retro | [実装・設計] | 実装後の振り返り。狂言・能口調で設計と判断を共に見直す |
 | /launch | [プロジェクト名] | MVPキックオフ。目標→設計→タスク分解→実行ランウェイ生成 |
+| /grill-me | — | 実装の壁打ち。決定木を辿ってインタビューし、docs/に保存後、claude実装か自力実装かを選べる |
 
 ## ナレッジ管理
 
@@ -64,6 +65,7 @@
 - `~/.claude/skills/map/SKILL.md`
 - `~/.claude/skills/retro/SKILL.md`
 - `~/.claude/skills/launch/SKILL.md`
+- `~/.claude/skills/grill-me/SKILL.md`
 - `~/.claude/skills/research/SKILL.md`
 - `~/.claude/skills/zettel/SKILL.md`
 - `~/.claude/skills/devnote/SKILL.md`
