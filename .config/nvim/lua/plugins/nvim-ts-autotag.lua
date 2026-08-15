@@ -1,5 +1,6 @@
 return {
   "windwp/nvim-ts-autotag",
+  enable = false,
   opts = {
     per_filetype = {
       ["markdown"] = {

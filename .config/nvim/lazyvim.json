@@ -1,15 +1,7 @@
 {
   "extras": [
-    "lazyvim.plugins.extras.ai.claudecode",
     "lazyvim.plugins.extras.coding.yanky",
-    "lazyvim.plugins.extras.editor.illuminate",
-    "lazyvim.plugins.extras.editor.outline",
-    "lazyvim.plugins.extras.lang.markdown",
-    "lazyvim.plugins.extras.linting.eslint",
-    "lazyvim.plugins.extras.ui.indent-blankline",
-    "lazyvim.plugins.extras.ui.mini-indentscope",
-    "lazyvim.plugins.extras.util.dot",
-    "lazyvim.plugins.extras.util.mini-hipatterns"
+    "lazyvim.plugins.extras.lang.markdown"
   ],
   "install_version": 8,
   "news": {
