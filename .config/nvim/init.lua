@@ -41,7 +41,7 @@ local groups = {
   -- カーソル行・カラム
   "CursorLine",
   "CursorColumn",
-  "ColorColumn",
+  -- "ColorColumn",
   -- ウィンバー / タブライン(bufferline.nvim使用中とのことなので特に重要)
   "WinBar",
   "WinBarNC",
@@ -55,7 +55,7 @@ local groups = {
   "@markup.heading.4.markdown",
   "@markup.heading.5.markdown",
   "@markup.heading.6.markdown",
-  "@markup.raw.block.markdown", -- コードブロック背景
+  -- "@markup.raw.block.markdown", -- コードブロック背景
   "RenderMarkdownH1Bg", -- render-markdown.nvim を使っている場合
   "RenderMarkdownH2Bg",
   "RenderMarkdownH3Bg",
