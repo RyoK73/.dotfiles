@@ -125,7 +125,7 @@ function pnpm-dev() {
 # ===
 # Zsh
 # ===
-alias -s {sh,md,lua,ts,tsx,js,jsx,json,jsonc,conf,toml,yaml,yml,toml,html,css,zshrc}=$EDITOR
+alias -s {md,lua,ts,tsx,js,jsx,json,jsonc,conf,toml,yaml,yml,toml,html,css,zshrc}=$EDITOR
 
 alias ls="ls -a1"
 alias lsc="ls -a1 | bat"
