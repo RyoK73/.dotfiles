@@ -339,6 +339,7 @@ alias hypr-reload="hyprctl reload"
 alias mozc-setup="fcitx5-config-qt"
 
 # pnpm
+alias npm="pnpm"
 export PNPM_HOME="/home/taruroma/.local/share/pnpm"
 case ":$PATH:" in
 *":$PNPM_HOME/bin:"*) ;;
