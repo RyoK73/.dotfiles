@@ -130,7 +130,13 @@ alias -s {md,lua,ts,tsx,js,jsx,json,jsonc,conf,toml,yaml,yml,toml,html,css,zshrc
 alias ls="ls -a1"
 alias lsc="ls -a1 | bat"
 alias cat="bat"
-alias trc="tree . | cat"
+function trc() {
+	local dir="$1"
+	if [[ -z dir ]]; then
+		dir="."
+	fi
+	tree dir | cat
+}
 alias xopen="xdg-open"
 
 alias cdnv="cd $HOME/.config/nvim/lua/plugins"
@@ -160,6 +166,7 @@ function cc() {
 		echo "例：cc session-name"
 		return 1
 	fi
+	wl-copy "$1"
 	claude --name "$1"
 }
 
@@ -348,7 +355,7 @@ esac
 # pnpm end
 
 # gists-tips-manager
-source "/home/taruroma/dev/gists-tips-manager-feat-add-tips-command/scripts/gists-tips-manager.zsh"
+source "/home/taruroma/dev/gists-tips-manager/scripts/gists-tips-manager.zsh"
 
 # claude-tasks
 export CLAUDE_TASKS_HOME="/home/taruroma/dev/claude-tasks"
