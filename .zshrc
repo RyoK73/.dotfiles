@@ -135,7 +135,7 @@ function trc() {
 	if [[ -z dir ]]; then
 		dir="."
 	fi
-	tree dir | cat
+	tree "$dir" | cat
 }
 alias xopen="xdg-open"
 

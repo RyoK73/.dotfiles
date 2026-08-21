@@ -44,6 +44,7 @@
 
 | スキル | 引数 | 説明 |
 |---|---|---|
+| /task-plan | [issue番号・URL（省略可）] | 現ブランチ・issue消化タスクを詳細洗い出し、docs/task/{branch}-task.mdにチェックボックス形式で保存。進捗管理も兼ねる |
 | /pr-review | [PRタイトルのヒント] | 変更の意図・設計を壁打ちし、5観点レビュー後にPR下書き作成 |
 | /post-review | [記事ファイルパス or slug] | ブログ記事を5軸で監査。公開前の品質チェック |
 | /design-md | [参考UI/サービス名やURL（省略可）] | Stitch仕様のDESIGN.md生成。コード解析＋参考UI調査＋対話でトークン抽出 |
@@ -81,6 +82,7 @@
 - `~/.claude/skills/interview-prep/SKILL.md`
 - `~/.claude/skills/curriculum/SKILL.md`
 - `~/.claude/skills/create-issues/SKILL.md`
+- `~/.claude/skills/task-plan/SKILL.md`
 - `~/.claude/skills/pr-review/SKILL.md`
 - `~/.claude/skills/post-review/SKILL.md`
 - `~/.claude/skills/design-md/SKILL.md`
