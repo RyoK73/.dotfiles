@@ -130,9 +130,11 @@ alias -s {md,lua,ts,tsx,js,jsx,json,jsonc,conf,toml,yaml,yml,toml,html,css,zshrc
 alias ls="ls -a1"
 alias lsc="ls -a1 | bat"
 alias cat="bat"
+
+# 指定 or カレントディレクトリをツリー表示する
 function trc() {
 	local dir="$1"
-	if [[ -z dir ]]; then
+	if [[ -z "$dir" ]]; then
 		dir="."
 	fi
 	tree "$dir" | cat
@@ -140,6 +142,20 @@ function trc() {
 alias xopen="xdg-open"
 
 alias cdnv="cd $HOME/.config/nvim/lua/plugins"
+
+# ディレクトリが存在しないファイルの場合、ディレクトリごと作成するtouch
+function mktouch() {
+	if [[ -z "$1" ]]; then
+		echo "引数が必要です"
+		exit
+	fi
+	local filepath="$1"
+	local dir=$(dirname "$filepath")
+	if [[ ! -d "$dir" ]]; then
+		mkdir -p "$dir"
+	fi
+	touch "$filepath"
+}
 
 # catしたファイルの内容をコピーする
 function catc() {
